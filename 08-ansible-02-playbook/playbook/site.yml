@@ -34,19 +34,17 @@
       register: create_db
       failed_when: create_db.rc != 0 and create_db.rc !=82
       changed_when: create_db.rc == 0
-
----
 - name: Try run Vector
-    hosts: all
-    tasks:
+  hosts: all
+  tasks:
     - name: Get Vector version
-        ansible.builtin.command: vector --version
-        register: is_installed
+      ansible.builtin.command: vector --version
+      register: is_installed
     - name: Get RPM
-        ansible.builtin.get_url:
-          url: "https://package.timber.io/vector/{{ vector_version }}"/vector.rpm
-          dest: "{{ansible_user_dir}}"/vector.rpm
-          mode: 0755
+      ansible.builtin.get_url:
+        url: "https://package.timber.io/vector/{{ vector_version }}"/vector.rpm
+        dest: "{{ansible_user_dir}}"/vector.rpm
+        mode: 0755
         when:
           - is_installed is failed
           - ansible_distribution == "CentOS"
