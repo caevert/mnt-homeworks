@@ -1,3 +1,9 @@
+##Предварительно выполнить на Linux хосте команду: sudo sysctl -w vm.max_map_count=262144
+##https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#_set_vm_max_map_count_to_at_least_262144
+#
+##kibana address: http://127.0.0.1:5601 будет доступно через ~1-2 мин
+#
+#
 version: '2.2'
 services:
 
@@ -9,7 +15,10 @@ services:
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=es-hot,es-warm
       - cluster.initial_master_nodes=es-hot,es-warm
+<<<<<<< HEAD
       - bootstrap.memory_lock=true
+=======
+>>>>>>> origin
       - node.roles=master,data_content,data_hot  
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - "http.host=0.0.0.0"
@@ -38,7 +47,10 @@ services:
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=es-hot,es-warm
       - cluster.initial_master_nodes=es-hot,es-warm
+<<<<<<< HEAD
       - bootstrap.memory_lock=true
+=======
+>>>>>>> origin
       - node.roles=master,data_warm
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - xpack.security.enabled=false
@@ -70,9 +82,15 @@ services:
       - es-warm
 
   logstash:
+<<<<<<< HEAD
     image: logstash:6.5.1
 
+=======
+    image: logstash:8.7.0
+>>>>>>> origin
     container_name: logstash
+    environment:
+      - "LS_JAVA_OPTS=-Xms256m -Xmx256m"
     ports:
       - 5046:5046
       - 5044:5044
@@ -86,7 +104,11 @@ services:
       - es-warm
 
   filebeat:
+<<<<<<< HEAD
     image: elastic/filebeat:7.2.0
+=======
+    image: elastic/filebeat:8.7.0
+>>>>>>> origin
     container_name: filebeat
     privileged: true
     user: root
