@@ -2,8 +2,8 @@
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_host: local
+      ansible_connection: docker
 vector:
   hosts:
     vector-01:
-      ansible_host: local
+      ansible_connection: docker
