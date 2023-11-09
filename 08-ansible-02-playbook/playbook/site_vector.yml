@@ -3,14 +3,16 @@
 - name: Try run Vector
   hosts: all
   tasks:
-    - name: Get Vector version
-      ansible.builtin.command: vector --version
-      register: is_installed
     - name: Get RPM
       ansible.builtin.get_url:
         url: "https://packages.timber.io/vector/0.34.0/vector-0.34.0-1.x86_64.rpm"
-        dest: "{{ansible_user_dir}}/vector.rpm"
-        mode: 0755
-        when:
-          - is_installed is failed
-          - ansible_distribution == "vector-01"
+        dest: "./vector.rpm"
+    - name: Install vector package
+      become: yes
+      become_method: su
+      ansible.builtin.yum:
+        name:
+          - vector.rpm
+    - name: Get Vector version
+      ansible.builtin.command: vector --version
+      register: is_installed
