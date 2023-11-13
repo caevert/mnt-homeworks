@@ -55,10 +55,12 @@
 
 10. В `prod.yml` добавьте новую группу хостов с именем  `local`, в ней разместите localhost с необходимым типом подключения.
 
+```
 local:
   hosts:
     localhost:
       ansible_connection: local
+```
 
 
 
@@ -68,6 +70,9 @@ local:
 
 
 12. Заполните `README.md` ответами на вопросы. Сделайте `git push` в ветку `master`. В ответе отправьте ссылку на ваш открытый репозиторий с изменённым `playbook` и заполненным `README.md`.
+
+https://github.com/AlexanderM33/mnt-homeworks-m/tree/MNT-video/08-ansible-01-base/playbook
+
 13. Предоставьте скриншоты результатов запуска команд.
 
 ## Необязательная часть
