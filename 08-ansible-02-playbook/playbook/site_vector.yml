@@ -8,8 +8,8 @@
         url: "https://packages.timber.io/vector/0.34.0/vector-0.34.0-1.x86_64.rpm"
         dest: "./vector.rpm"
     - name: Install vector package
-      become: yes
-      become_method: su
+      become: true
+      become_method: su #ошибка при дефолтном методе, отсутствует sudo (sudo: command not found)
       ansible.builtin.yum:
         name:
           - vector.rpm
