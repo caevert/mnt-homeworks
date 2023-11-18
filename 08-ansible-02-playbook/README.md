@@ -107,7 +107,7 @@ vector-01                  : ok=5    changed=0    unreachable=0    failed=0    s
 
 ##### Общие
 
-#### ```vector_version``` - доступная версия vector
+```vector_version``` - доступная версия vector
 
 ```vector_config``` - файл конфигурации vector
 
