@@ -95,34 +95,37 @@ vector-01                  : ok=5    changed=0    unreachable=0    failed=0    s
 
 # Описание работы плейбука
 
-### Плейбук скачивает устанавливает и настраивает Clickhouse на контейнере Docker clickhouse-01 и Vector который будет уставновлен на всех хостах в данном случае на clickhouse-01 и vector-01
+### Плейбук скачивает, устанавливает и настраивает Clickhouse на контейнере Docker clickhouse-01 и Vector который будет уставновлен на всех хостах, в данном случае на clickhouse-01 и vector-01
 
-### Тэги используемые плейбуком:
-clickhouse - установка и настройка clickhouse
-vector - установка и настройка vector
+#### Тэги используемые плейбуком
 
-### Переменные используемые плейбуком:
+```clickhouse``` - установка и настройка Clickhouse
 
-Общие
-vector_version - доступная версия vector
+```vector``` - установка и настройка vector
 
-vector_config - файл конфигурации vector
+#### Переменные используемые плейбуком
 
-vector_conf_dir - каталог хранения конфигурации vector
+#### Общие
 
-Для Clichouse
+##### ```vector_version``` - доступная версия vector
 
-clickhouse_version - доступная версия clickhouse
+```vector_config``` - файл конфигурации vector
 
-clickhouse_packages - пакеты clickhouse необходимые для установки
+```vector_conf_dir``` - каталог хранения конфигурации vector
 
-Для Vector
+##### Для Clichouse
 
-vector_version - доступная версия vector
+```clickhouse_version``` - доступная версия clickhouse
 
-vector_config - файл конфигурации vector
+```clickhouse_packages``` - пакеты clickhouse необходимые для установки
 
-vector_conf_dir - каталог хранения конфигурации vector
+##### Для Vector
+
+```vector_version```- доступная версия vector
+
+```vector_config``` - файл конфигурации vector
+
+```vector_conf_dir``` - каталог хранения конфигурации vector
 
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.
 
