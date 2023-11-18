@@ -1,0 +1,2 @@
+lighthouse_vcs: "https://github.com/VKCOM/lighthouse.git"
+lighthouse_location_dir: "{{ ansible_user_dir }}/lighthouse_config"

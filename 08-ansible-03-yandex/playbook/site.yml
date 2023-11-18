@@ -1,5 +1,5 @@
 ---
-- name: Install nginx
+- name: Installation nginx
   hosts: lighthouse
   handlers:
     - name: start-nginx
@@ -34,15 +34,16 @@
   pre_tasks:
     - name: Lighthouse | install dependencies
       become: true
+      become_method: su
       ansible.builtin.yum:
         name: git
         state: present
   tasks:
     - name: Lighthouse | copy from git
       git:
-        repo: "{{ lighthouse_vcs}}"
+        repo: "{{ lighthouse_vcs }}"
         version: master
-        dest: "{{ lighthouse_location_dir}}"
+        dest: "{{ lighthouse_location_dir }}"
     - name: Lighthouse | Create lighthouse configuration
       become: true
       template:
@@ -50,7 +51,6 @@
         dest: /etc/nginx/conf.d/default.conf
         mode: "0644"
       notify: reload-nginx
-
 - name: Install Clickhouse
   hosts: clickhouse
   tasks:
