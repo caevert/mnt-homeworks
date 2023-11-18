@@ -105,15 +105,15 @@ vector-01                  : ok=5    changed=0    unreachable=0    failed=0    s
 
 #### Переменные используемые плейбуком
 
-#### Общие
+##### Общие
 
-##### ```vector_version``` - доступная версия vector
+#### ```vector_version``` - доступная версия vector
 
 ```vector_config``` - файл конфигурации vector
 
 ```vector_conf_dir``` - каталог хранения конфигурации vector
 
-##### Для Clichouse
+##### Для Clickhouse
 
 ```clickhouse_version``` - доступная версия clickhouse
 
