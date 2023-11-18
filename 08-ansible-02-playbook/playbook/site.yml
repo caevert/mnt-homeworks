@@ -16,11 +16,11 @@
           with_items: "{{ clickhouse_packages }}"
       rescue:
         - name: Get clickhouse distrib
-          ansible.builtin.get_url:e
+          ansible.builtin.get_url:
             url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
             dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
     - name: Install clickhouse packages
-      become: yes
+      become: true
       become_method: su
       ansible.builtin.yum:
         name:
@@ -28,7 +28,7 @@
           - clickhouse-client-{{ clickhouse_version }}.rpm
           - clickhouse-server-{{ clickhouse_version }}.rpm
       notify: Start clickhouse service
-      become: yes
+      become: true
       become_method: su
     - name: Flush handlers
       meta: flush_handlers
