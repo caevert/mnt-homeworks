@@ -32,6 +32,14 @@
 ```
 
 5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.
+
+```
+ansible-lint site.yml
+
+Passed: 0 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'production'.
+
+```
+
 6. Попробуйте запустить playbook на этом окружении с флагом `--check`.
 
 ```

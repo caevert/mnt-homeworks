@@ -9,6 +9,7 @@
         state: restarted
   tasks:
     - name: Clickhouse Installation
+      tags: clickhouse
       block:
         - name: Get clickhouse distrib
           ansible.builtin.get_url:
@@ -22,7 +23,6 @@
             url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
             dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
             mode: "0644"
-      tags: clickhouse
     - name: Install clickhouse packages
       become: true
       ansible.builtin.yum:
@@ -34,17 +34,16 @@
       notify: Start clickhouse service
     - name: Flush handlers
       ansible.legacy.meta: flush_handlers
-
     - name: Create database
       ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
       register: create_db
-      failed_when: create_db.rc != 0 and create_db.rc !=82
+      failed_when: create_db.rc != 0 and create_db.rc != 82
       changed_when: create_db.rc == 0
       tags: clickhouse
 - name: Install Vector
   hosts: all
   handlers:
-    - name: Start vector service
+    - name: Restart vector service
       become: true
       ansible.builtin.service:
         name: vector
@@ -62,9 +61,6 @@
         name:
           - vector-{{ vector_version }}.rpm
       tags: vector
-      notify: Start vector service
-    - name: Flush handlers
-      ansible.legacy.meta: flush_handlers
     - name: Create vector configuration
       become: true
       ansible.builtin.file:
@@ -79,3 +75,4 @@
         dest: "{{ vector_conf_dir }}/vector.yml"
         mode: "0644"
       tags: vector
+      notify: Restart vector service
