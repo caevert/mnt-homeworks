@@ -76,3 +76,5 @@
         mode: "0644"
       tags: vector
       notify: Restart vector service
+    - name: Flush handlers
+      ansible.legacy.meta: flush_handlers
