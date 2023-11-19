@@ -1,6 +1,12 @@
 ---
 - name: Install Clickhouse
   hosts: clickhouse
+  handlers:
+    - name: Start clickhouse service
+      become: true
+      ansible.builtin.service:
+        name: clickhouse-server
+        state: restarted
   tasks:
     - name: Clickhouse Installation
       block:
@@ -18,18 +24,17 @@
             mode: "0644"
       tags: clickhouse
     - name: Install clickhouse packages
+      become: true
       ansible.builtin.yum:
         name:
           - clickhouse-common-static-{{ clickhouse_version }}.rpm
           - clickhouse-client-{{ clickhouse_version }}.rpm
           - clickhouse-server-{{ clickhouse_version }}.rpm
       tags: clickhouse
+      notify: Start clickhouse service
     - name: Flush handlers
       ansible.legacy.meta: flush_handlers
-    - name: Start clickhouse-server
-      ansible.builtin.command:
-        cmd: clickhouse restart
-      tags: clickhouse
+
     - name: Create database
       ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
       register: create_db
@@ -38,6 +43,12 @@
       tags: clickhouse
 - name: Install Vector
   hosts: all
+  handlers:
+    - name: Start vector service
+      become: true
+      ansible.builtin.service:
+        name: vector
+        state: restarted
   tasks:
     - name: Get RPM Vector
       ansible.builtin.get_url:
@@ -47,18 +58,22 @@
       tags: vector
     - name: Install vector package
       become: true
-      become_method: su
       ansible.builtin.yum:
         name:
           - vector-{{ vector_version }}.rpm
       tags: vector
+      notify: Start vector service
+    - name: Flush handlers
+      ansible.legacy.meta: flush_handlers
     - name: Create vector configuration
+      become: true
       ansible.builtin.file:
         path: "{{ vector_conf_dir }}"
         state: directory
         mode: "0644"
       tags: vector
     - name: Using vector template
+      become: true
       ansible.builtin.template:
         src: "template/vector.j2"
         dest: "{{ vector_conf_dir }}/vector.yml"
