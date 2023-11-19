@@ -94,13 +94,13 @@
     - name: Flush handlers
       ansible.legacy.meta: flush_handlers
     - name: Clickhouse | Create database
-      ansible.builtin.command: "clickhouse-client -q 'create database sample;'"
+      ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
       register: create_db
       failed_when: create_db.rc != 0 and create_db.rc != 82
       changed_when: create_db.rc == 0
       tags: clickhouse
 - name: Vector | Install Vector
-  hosts: all
+  hosts: vector
   handlers:
     - name: Restart vector service
       become: true

@@ -2,12 +2,15 @@
 lighthouse:
   hosts:
     lighthouse-01:
-      ansible_connection: docker
+      ansible_host:
+      ansible_user:
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_connection: docker
+      ansible_host:
+      ansible_user:
 vector:
   hosts:
     vector-01:
-      ansible_connection: docker
+      ansible_host:
+      ansible_user:
