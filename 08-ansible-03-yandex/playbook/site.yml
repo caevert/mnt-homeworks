@@ -67,22 +67,22 @@
         name: clickhouse-server
         state: restarted
   tasks:
-    - name: Clickhouse Installation
+    - name: Clickhouse | Install_clickhouse
       tags: clickhouse
       block:
-        - name: Get clickhouse distrib
+        - name: Clickhouse | Get clickhouse distribs
           ansible.builtin.get_url:
             url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
             dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
             mode: "0644"
           with_items: "{{ clickhouse_packages }}"
       rescue:
-        - name: Get clickhouse distrib
+        - name: Clickhouse | Get clickhouse distrib resque
           ansible.builtin.get_url:
             url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
             dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
             mode: "0644"
-    - name: Install clickhouse packages
+    - name: Clickhouse | Install clickhouse packages
       become: true
       ansible.builtin.yum:
         name:
@@ -93,13 +93,13 @@
       notify: Start clickhouse service
     - name: Flush handlers
       ansible.legacy.meta: flush_handlers
-    - name: Create database
-      ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
+    - name: Clickhouse | Create database
+      ansible.builtin.command: "clickhouse-client -q 'create database sample;'"
       register: create_db
       failed_when: create_db.rc != 0 and create_db.rc != 82
       changed_when: create_db.rc == 0
       tags: clickhouse
-- name: Install Vector
+- name: Vector | Install Vector
   hosts: all
   handlers:
     - name: Restart vector service
@@ -108,7 +108,7 @@
         name: vector
         state: restarted
   tasks:
-    - name: Get RPM Vector
+    - name: Vector | Get RPM Vector
       ansible.builtin.get_url:
         url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm"
         dest: "./vector-{{ vector_version }}.rpm"
@@ -120,14 +120,14 @@
         name:
           - vector-{{ vector_version }}.rpm
       tags: vector
-    - name: Create vector configuration
+    - name: Vector | Create vector configuration
       become: true
       ansible.builtin.file:
         path: "{{ vector_conf_dir }}"
         state: directory
         mode: "0644"
       tags: vector
-    - name: Using vector template
+    - name: Vector | Using vector template
       become: true
       ansible.builtin.template:
         src: "template/vector.j2"
@@ -137,3 +137,15 @@
       notify: Restart vector service
     - name: Flush handlers
       ansible.legacy.meta: flush_handlers
+    - name: Vector | create systemd unit
+      become: true
+      ansible.builtin.template:
+      src: vector.service.j2
+      dest: /etc/systemd/system/vector.service
+      mode: "0644"
+    - name: Vector | start vector service
+      become: true
+      ansible.builtin.systemd:
+        name: vector
+        state: started
+        daemon_reload: true
