@@ -60,11 +60,16 @@ vector 0.34.1 (x86_64-unknown-linux-gnu 86f1c22 2023-11-16 14:59:10.486846964)
 
 ![VirtualBox_FEDORA_20_11_2023_23_52_30](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/c0e600b4-7516-43fa-bd27-08df81d7ca28)
 
-![VirtualBox_FEDORA_21_11_2023_18_32_53](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/3a29053e-6a56-44be-badc-c69da1fa8f29)
+
 
 6. Попробуйте запустить playbook на этом окружении с флагом `--check`.
 7. Запустите playbook на `prod.yml` окружении с флагом `--diff`. Убедитесь, что изменения на системе произведены.
+
+![VirtualBox_FEDORA_21_11_2023_18_32_53](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/3a29053e-6a56-44be-badc-c69da1fa8f29)
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
+
+![VirtualBox_FEDORA](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/867d96eb-66f2-4f29-bf3b-faeb978cb1cc)
+
 
 ```
 ###FINAL PLAYBOOK
