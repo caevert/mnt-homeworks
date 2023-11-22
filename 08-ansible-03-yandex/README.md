@@ -10,7 +10,9 @@
 ![VirtualBox_FEDORA_22_11_2023_23_01_33](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/0a6ef497-9b66-4d34-b550-9c3a031e5354)
 
 
-https://github.com/AlexanderM33/mnt-homeworks-m/edit/MNT-video/08-ansible-03-yandex/README.md
+https://github.com/AlexanderM33/mnt-homeworks-m/edit/MNT-video/08-ansible-03-yandex/
+
+https://github.com/AlexanderM33/mnt-homeworks-m/blob/MNT-video/08-ansible-03-yandex/site.yml
 
 
 
