@@ -1,0 +1,7 @@
+---
+# handlers file for lighthouse-role
+- name: Reload-nginx
+  become: true
+  ansible.builtin.command: nginx -s reload
+  register: nginx_reload_output
+  changed_when: nginx_reload_output.rc != 0

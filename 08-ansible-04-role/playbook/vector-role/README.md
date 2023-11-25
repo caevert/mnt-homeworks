@@ -3,7 +3,7 @@ Vector
 
 - Загрузка и установка агрегатора логов Vector
 - Создание модуля systemd для управления службой Vector
-- Настройка конфигурации Vector для сбора логов NGINX и последующей передаче Clickhouse
+- Настройка конфигурации Vector для сбора логов NGINX и последующей передачи Clickhouse
 
 Requirements
 ------------
@@ -34,11 +34,11 @@ Dependencies
 Example Playbook
 ----------------
 
-
+```
     - hosts: vector
       roles:
          - vector-role
-
+```
 License
 -------
 
@@ -46,4 +46,3 @@ BSD
 
 Author Information
 ------------------
-

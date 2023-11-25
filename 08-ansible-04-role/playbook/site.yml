@@ -24,49 +24,9 @@
         name: nginx
         state: present
       notify: Start-nginx
-    - name: NGINX | Create general config
-      become: true
-      ansible.builtin.template:
-        src: templates/nginx.conf.j2
-        dest: /etc/nginx/nginx.conf
-        mode: "0644"
-      notify: Reload-nginx
-  tags: nginx
 
-- name: LIGHTHOUSE | Install Lighthouse
-  hosts: lighthouse
-  handlers:
-    - name: Reload-nginx
-      become: true
-      ansible.builtin.command: nginx -s reload
-      register: nginx_reload_output
-      changed_when: nginx_reload_output.rc != 0
-  pre_tasks:
-    - name: LIGHTHOUSE | Install dependencies
-      become: true
-      ansible.builtin.yum:
-        name: git
-        state: present
-    - name: Install unzip
-      become: true
-      ansible.builtin.yum:
-        name: unzip
-        state: present
-        update_cache: true
-  tasks:
-    - name: LIGHTHOUSE | Get lighthouse distrib
-      ansible.builtin.get_url:
-        url: "{{ lighthouse_vcs }}/archive/refs/heads/master.zip"
-        dest: "./lighthouse.zip"
-        mode: "0644"
-    - name: LIGHTHOUSE | Unarchive lighthouse distrib into nginx
-      become: true
-      ansible.builtin.unarchive:
-        src: ./lighthouse.zip
-        dest: "{{ lighthouse_location_dir }}"
-        remote_src: true
-      notify: Reload-nginx
-  tags: lighthouse
+
+
 
 - name: CLICKHOUSE | Install Clickhouse
   hosts: clickhouse
