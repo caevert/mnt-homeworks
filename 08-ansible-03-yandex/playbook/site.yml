@@ -56,14 +56,14 @@
   tasks:
     - name: LIGHTHOUSE | Get lighthouse distrib
       ansible.builtin.get_url:
-        url: "https://github.com/VKCOM/lighthouse/archive/refs/heads/master.zip"
+        url: "{{ lighthouse_vcs }}/archive/refs/heads/master.zip"
         dest: "./lighthouse.zip"
         mode: "0644"
     - name: LIGHTHOUSE | Unarchive lighthouse distrib into nginx
       become: true
       ansible.builtin.unarchive:
         src: ./lighthouse.zip
-        dest: /usr/share/nginx/html/
+        dest: "{{ lighthouse_location_dir }}"
         remote_src: true
       notify: Reload-nginx
   tags: lighthouse

@@ -8,14 +8,73 @@
 ## Основная часть
 
 1. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает LightHouse.
-2. При создании tasks рекомендую использовать модули: `get_url`, `template`, `yum`, `apt`.
+
+<p align="center">
+  <image src="./assets/lighthouse.png">
+</p>
+
+2. При создании tasks рекомендую использовать модули: `get_url`, `template`, `yum`, `apt`.yes
 3. Tasks должны: скачать статику LightHouse, установить Nginx или любой другой веб-сервер, настроить его конфиг для открытия LightHouse, запустить веб-сервер.
 4. Подготовьте свой inventory-файл `prod.yml`.
 5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.
 6. Попробуйте запустить playbook на этом окружении с флагом `--check`.
 7. Запустите playbook на `prod.yml` окружении с флагом `--diff`. Убедитесь, что изменения на системе произведены.
+
+```
+PLAY RECAP *****************************************************************************************************************************************
+clickhouse-01              : ok=6    changed=5    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0   
+lighthouse-01              : ok=12   changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+vector-01                  : ok=6    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+```
+
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
 9. Подготовьте README.md-файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
+
+# Описание работы плейбука
+
+### Плейбук скачивает, устанавливает и настраивает Clickhouse и Vector на облачных инстансах
+#### Тэги используемые плейбуком
+
+```nginx``` - установка и настройка веб-сервера nginx
+
+
+```lighthouse``` - установка и настройка веб-интерфейса для просмотра БД Clickhouse
+
+```clickhouse``` - установка и настройка сервера БД Clickhouse
+
+```vector``` - установка и настройка агрегатора логов Vector
+
+
+#### Переменные используемые плейбуком
+
+##### Общие
+
+```vector_version``` - доступная версия vector
+
+```vector_config``` - файл конфигурации vector
+
+```vector_conf_dir``` - каталог хранения конфигурации vector
+
+##### Для Lighthouse 
+
+```lighthouse_vcs``` - адрес репозитория Lighthouse на github
+
+```lighthouse_location_dir``` - каталог установки Lighthouse
+
+
+##### Для Clickhouse
+
+```clickhouse_version``` - доступная версия clickhouse
+
+```clickhouse_packages``` - пакеты clickhouse необходимые для установки
+
+##### Для Vector
+
+```vector_version```- доступная версия vector
+
+```vector_conf_dir``` - каталог хранения конфигурации vector
+
+
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-03-yandex` на фиксирующий коммит, в ответ предоставьте ссылку на него.
 
 ---
