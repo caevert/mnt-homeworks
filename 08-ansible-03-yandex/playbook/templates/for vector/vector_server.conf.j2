@@ -1,0 +1,18 @@
+data_dir = "/var/lib/vector"
+
+sources:
+    nginx_input_vector:
+        type: vector
+        address: 0.0.0.0:9876
+        shutdown_timeout_secs: 30
+
+
+sinks:
+    clickhouse:
+        inputs: 
+            - nginx_logs
+        type: clickhouse
+        host: 130.193.34.12:8123
+        database: nginxdb
+        table: access_logs
+        skip_unknown_fields: true
