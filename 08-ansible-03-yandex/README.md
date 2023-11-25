@@ -3,6 +3,11 @@
 ## Подготовка к выполнению
 
 1. Подготовьте в Yandex Cloud три хоста: для `clickhouse`, для `vector` и для `lighthouse`.
+
+<p align="center">
+  <image src="./assets/yc CLV.png">
+</p>
+
 2. Репозиторий LightHouse находится [по ссылке](https://github.com/VKCOM/lighthouse).
 
 ## Основная часть
@@ -33,17 +38,16 @@ vector-01                  : ok=6    changed=5    unreachable=0    failed=0    s
 # Описание работы плейбука
 
 ### Плейбук скачивает, устанавливает и настраивает Clickhouse и Vector на облачных инстансах
+
 #### Тэги используемые плейбуком
 
 ```nginx``` - установка и настройка веб-сервера nginx
-
 
 ```lighthouse``` - установка и настройка веб-интерфейса для просмотра БД Clickhouse
 
 ```clickhouse``` - установка и настройка сервера БД Clickhouse
 
 ```vector``` - установка и настройка агрегатора логов Vector
-
 
 #### Переменные используемые плейбуком
 
@@ -55,12 +59,11 @@ vector-01                  : ok=6    changed=5    unreachable=0    failed=0    s
 
 ```vector_conf_dir``` - каталог хранения конфигурации vector
 
-##### Для Lighthouse 
+##### Для Lighthouse
 
 ```lighthouse_vcs``` - адрес репозитория Lighthouse на github
 
 ```lighthouse_location_dir``` - каталог установки Lighthouse
-
 
 ##### Для Clickhouse
 
@@ -73,7 +76,6 @@ vector-01                  : ok=6    changed=5    unreachable=0    failed=0    s
 ```vector_version```- доступная версия vector
 
 ```vector_conf_dir``` - каталог хранения конфигурации vector
-
 
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-03-yandex` на фиксирующий коммит, в ответ предоставьте ссылку на него.
 
