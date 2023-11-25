@@ -1,0 +1,128 @@
+---
+- name: Installation NGINX
+  hosts: lighthouse
+  handlers:
+    - name: Start-nginx
+      become: true
+      ansible.builtin.command: nginx
+      register: nginx_start_output
+      changed_when: nginx_start_output.rc != 0
+    - name: Reload-nginx
+      become: true
+      ansible.builtin.command: nginx -s reload
+      register: nginx_reload_output
+      changed_when: nginx_reload_output.rc != 0
+  tasks:
+    - name: NGINX | Install epel-release
+      become: true
+      ansible.builtin.yum:
+        name: epel-release
+        state: present
+    - name: NGINX | Install_NGINX
+      become: true
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+      notify: Start-nginx
+    - name: NGINX | Create general config
+      become: true
+      ansible.builtin.template:
+        src: templates/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+        mode: "0644"
+      notify: Reload-nginx
+  tags: nginx
+
+- name: LIGHTHOUSE | Install Lighthouse
+  hosts: lighthouse
+  handlers:
+    - name: Reload-nginx
+      become: true
+      ansible.builtin.command: nginx -s reload
+      register: nginx_reload_output
+      changed_when: nginx_reload_output.rc != 0
+  pre_tasks:
+    - name: LIGHTHOUSE | Install dependencies
+      become: true
+      ansible.builtin.yum:
+        name: git
+        state: present
+    - name: Install unzip
+      become: true
+      ansible.builtin.yum:
+        name: unzip
+        state: present
+        update_cache: true
+  tasks:
+    - name: LIGHTHOUSE | Get lighthouse distrib
+      ansible.builtin.get_url:
+        url: "{{ lighthouse_vcs }}/archive/refs/heads/master.zip"
+        dest: "./lighthouse.zip"
+        mode: "0644"
+    - name: LIGHTHOUSE | Unarchive lighthouse distrib into nginx
+      become: true
+      ansible.builtin.unarchive:
+        src: ./lighthouse.zip
+        dest: "{{ lighthouse_location_dir }}"
+        remote_src: true
+      notify: Reload-nginx
+  tags: lighthouse
+
+- name: CLICKHOUSE | Install Clickhouse
+  hosts: clickhouse
+  handlers:
+    - name: Start clickhouse service
+      become: true
+      ansible.builtin.service:
+        name: clickhouse-server
+        state: started
+  tasks:
+    - name: CLICKHOUSE | Install_clickhouse
+      tags: clickhouse
+      block:
+        - name: Clickhouse | Get clickhouse distribs
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
+            dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
+            mode: "0644"
+          with_items: "{{ clickhouse_packages }}"
+      rescue:
+        - name: Clickhouse | Get clickhouse distrib resque
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+            dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
+            mode: "0644"
+    - name: CLICKHOUSE | Install clickhouse packages
+      become: true
+      ansible.builtin.yum:
+        name:
+          - clickhouse-common-static-{{ clickhouse_version }}.rpm
+          - clickhouse-client-{{ clickhouse_version }}.rpm
+          - clickhouse-server-{{ clickhouse_version }}.rpm
+      tags: clickhouse
+      notify: Start clickhouse service
+    - name: Flush handlers
+      ansible.legacy.meta: flush_handlers
+    - name: CLICKHOUSE | Create database
+      become: true
+      ansible.builtin.command: "clickhouse-client -q 'create database nginxdb;'"
+      register: create_db
+      failed_when: create_db.rc != 0 and create_db.rc != 82
+      changed_when: create_db.rc == 0
+    - name: Create table for logs
+      become: true
+      ansible.builtin.command: clickhouse-client -q
+        'CREATE TABLE nginxdb.log
+        (
+          `ip` String,
+          `time` Datetime,
+          `url` String,
+          `status` UInt8,
+          `size` UInt32,
+          `agent` String
+        )
+        ENGINE = MergeTree()
+        ORDER BY tuple();'
+      register: create_table
+      ignore_errors: true
+      tags: clickhouse
