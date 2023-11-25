@@ -5,7 +5,7 @@
 1. Подготовьте в Yandex Cloud три хоста: для `clickhouse`, для `vector` и для `lighthouse`.
 
 <p align="center">
-  <image src="./assets/yc CLV.png">
+  <image src="./assets/yc_CLV.png">
 </p>
 
 2. Репозиторий LightHouse находится [по ссылке](https://github.com/VKCOM/lighthouse).
