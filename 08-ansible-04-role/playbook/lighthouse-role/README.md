@@ -16,7 +16,7 @@ Role Variables
 
 Dependencies
 ------------
-Необходима роль clickhouse-role 
+Необходима роль clickhouse 
 
 Example Playbook
 ----------------

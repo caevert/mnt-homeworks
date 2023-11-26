@@ -50,6 +50,9 @@ ansible-galaxy role init vector-role
     [Открыть репозиторий vector-role](https://github.com/Muroway/vector-role.git)
 
 7. Повторите шаги 3–6 для LightHouse. Помните, что одна роль должна настраивать один продукт.
+
+[Открыть репозиторий lighthouse-role](https://github.com/Muroway/lighthouse-role.git)
+
 8. Выложите все roles в репозитории. Проставьте теги, используя семантическую нумерацию. Добавьте roles в `requirements.yml` в playbook.
 
 ```yaml
@@ -86,8 +89,6 @@ ansible-galaxy role init vector-role
 
 ```
 
-
-[Открыть репозиторий lighthouse-role](https://github.com/Muroway/lighthouse-role.git)
 
 10. Выложите playbook в репозиторий.
 11. В ответе дайте ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
