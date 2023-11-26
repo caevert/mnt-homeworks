@@ -1,59 +1,13 @@
-
-- name: CLICKHOUSE | Install Clickhouse
-  hosts: clickhouse
-  handlers:
-    - name: Start clickhouse service
-      become: true
-      ansible.builtin.service:
-        name: clickhouse-server
-        state: started
-  tasks:
-    - name: CLICKHOUSE | Install_clickhouse
-      tags: clickhouse
-      block:
-        - name: Clickhouse | Get clickhouse distribs
-          ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
-            dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
-            mode: "0644"
-          with_items: "{{ clickhouse_packages }}"
-      rescue:
-        - name: Clickhouse | Get clickhouse distrib resque
-          ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
-            dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
-            mode: "0644"
-    - name: CLICKHOUSE | Install clickhouse packages
-      become: true
-      ansible.builtin.yum:
-        name:
-          - clickhouse-common-static-{{ clickhouse_version }}.rpm
-          - clickhouse-client-{{ clickhouse_version }}.rpm
-          - clickhouse-server-{{ clickhouse_version }}.rpm
-      tags: clickhouse
-      notify: Start clickhouse service
-    - name: Flush handlers
-      ansible.legacy.meta: flush_handlers
-    - name: CLICKHOUSE | Create database
-      become: true
-      ansible.builtin.command: "clickhouse-client -q 'create database nginxdb;'"
-      register: create_db
-      failed_when: create_db.rc != 0 and create_db.rc != 82
-      changed_when: create_db.rc == 0
-    - name: Create table for logs
-      become: true
-      ansible.builtin.command: clickhouse-client -q
-        'CREATE TABLE nginxdb.log
-        (
-          `ip` String,
-          `time` Datetime,
-          `url` String,
-          `status` UInt8,
-          `size` UInt32,
-          `agent` String
-        )
-        ENGINE = MergeTree()
-        ORDER BY tuple();'
-      register: create_table
-      ignore_errors: true
-      tags: clickhouse
+---
+  - name: CLICKHOUSE | Install Clickhouse
+    hosts: clickhouse
+    roles:
+      - clickhouse
+  - name: LIGHTHOUSE | Install Lighthouse
+    host: lighthouse
+    roles:
+      - lighthouse
+  - name: VECTOR | Install Vector
+    host: Vector
+    roles:
+      - vector
