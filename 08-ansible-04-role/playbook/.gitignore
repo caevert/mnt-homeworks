@@ -1,6 +1,0 @@
-files/*
-docker_start.sh
-site_vector.yml
-*.zip
-*.rpm
-*.deb

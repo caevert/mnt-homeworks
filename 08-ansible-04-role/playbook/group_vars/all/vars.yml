@@ -1,4 +1,0 @@
----
-vector_version: "0.34.0"
-vector_config:
-vector_conf_dir: "{{ ansible_user_dir }}/vector_config"
