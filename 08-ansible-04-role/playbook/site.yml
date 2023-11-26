@@ -3,11 +3,12 @@
     hosts: clickhouse
     roles:
       - clickhouse
+    ignore_errors: true
   - name: LIGHTHOUSE | Install Lighthouse
-    host: lighthouse
+    hosts: lighthouse
     roles:
       - lighthouse
   - name: VECTOR | Install Vector
-    host: Vector
+    hosts: vector
     roles:
       - vector
