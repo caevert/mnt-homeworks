@@ -1,5 +1,17 @@
 ---
 # tasks file for lighthouse-role
+- name: NGINX | Install epel-release
+  become: true
+  ansible.builtin.yum:
+    name: epel-release
+    state: present
+- name: NGINX | Install_NGINX
+  become: true
+  ansible.builtin.yum:
+    name: nginx
+    state: present
+  notify: Start-nginx
+
 - name: LIGHTHOUSE | Install git
   become: true
   ansible.builtin.yum:
