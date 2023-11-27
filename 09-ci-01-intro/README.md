@@ -60,8 +60,7 @@
 
 ![1](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/b7673770-9664-4b72-b84c-e7d00e3a9489)
 
-[Uploadin
-
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE workflow PUBLIC "-//OpenSymphony Group//DTD OSWorkflow 2.8//EN" "http://www.opensymphony.com/osworkflow/workflow_2_8.dtd">
 <workflow>
@@ -423,10 +422,10 @@
   </steps>
 </workflow>
 
-g HW_WORKFLOW.xml…]()
+```
 
 
-[Uploading RE
+```
 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE workflow PUBLIC "-//OpenSymphony Group//DTD OSWorkflow 2.8//EN" "http://www.opensymphony.com/osworkflow/workflow_2_8.dtd">
@@ -703,7 +702,7 @@ g HW_WORKFLOW.xml…]()
   </steps>
 </workflow>
 
-GULAR_WORKFLOW.xml…]()
+```
 
 
 Выполненное домашнее задание пришлите в виде ссылки на .md-файл в вашем репозитории.
