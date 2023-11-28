@@ -59,3 +59,7 @@
 ![2](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/47238551-bebb-433b-ad53-807dcdadf04c)
 
 ![10](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/598138b9-5f5f-4af8-b84b-84907ff1882b)
+
+https://github.com/AlexanderM33/mnt-homeworks-m/blob/MNT-video/09-ci-01-intro/HW_WORKFLOW%20(1).xml
+
+
