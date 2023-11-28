@@ -61,8 +61,12 @@
 ![10](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/598138b9-5f5f-4af8-b84b-84907ff1882b)
 
 для багов:
+
 https://github.com/AlexanderM33/mnt-homeworks-m/blob/MNT-video/09-ci-01-intro/HW_WORKFLOW%20(1).xml
 
+
+______________________________
 для остальных задач:
+
 https://github.com/AlexanderM33/mnt-homeworks-m/blob/MNT-video/09-ci-01-intro/REGULAR_WORKFLOW%20(2).xml
 
