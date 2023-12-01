@@ -4,3 +4,9 @@
 .tox
 *_bkp
 old_*
+files/*
+docker_start.sh
+site_vector.yml
+*.zip
+*.rpm
+*.deb

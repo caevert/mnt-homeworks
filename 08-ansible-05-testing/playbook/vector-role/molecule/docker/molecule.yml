@@ -13,7 +13,6 @@ platforms:
 lint: |
   ansible-lint
   yamllint
-
 provisioner:
   name: ansible
 verifier:
