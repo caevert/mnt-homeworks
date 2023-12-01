@@ -1,0 +1,19 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+  - name: instance
+lint: |
+  ansible-lint
+  yamllint
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
+
+
+    # you might want to add your own variables here based on what provisioning
+    # you are doing like:
+    # image: quay.io/centos/centos:stream8

@@ -1,0 +1,269 @@
+py37-ansible210 installed: ansible==2.10.7,ansible-base==2.10.17,ansible-compat==1.0.0,ansible-lint==5.1.3,arrow==1.2.3,bcrypt==4.1.1,binaryornot==0.4.4,bracex==2.3.post1,cached-property==1.5.2,Cerberus==1.3.5,certifi==2023.11.17,cffi==1.15.1,chardet==5.2.0,charset-normalizer==3.3.2,click==8.1.7,click-help-colors==0.9.4,cookiecutter==2.5.0,cryptography==41.0.7,distro==1.8.0,enrich==1.2.7,idna==3.6,importlib-metadata==6.7.0,Jinja2==3.1.2,jmespath==1.0.1,lxml==4.9.3,markdown-it-py==2.2.0,MarkupSafe==2.1.3,mdurl==0.1.2,molecule==3.5.2,molecule-podman==1.1.0,packaging==23.2,paramiko==2.12.0,pathspec==0.11.2,pluggy==1.2.0,pycparser==2.21,Pygments==2.17.2,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.31.0,rich==13.7.0,ruamel.yaml==0.18.5,ruamel.yaml.clib==0.2.8,selinux==0.2.1,six==1.16.0,subprocess-tee==0.3.5,tenacity==8.2.3,text-unidecode==1.3,typing_extensions==4.7.1,urllib3==2.0.7,wcmatch==8.4.1,yamllint==1.26.3,zipp==3.15.0
+py37-ansible210 run-test-pre: PYTHONHASHSEED='3008652691'
+py37-ansible210 run-test: commands[0] | molecule test -s podman --destroy always
+[34mINFO    [0m podman scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+[34mINFO    [0m Performing prerun[33m...[0m
+[34mINFO    [0m Set [33mANSIBLE_LIBRARY[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mmodules[0m:[35m/root/.ansible/plugins/[0m[95mmodules[0m:[35m/usr/share/ansible/plugins/[0m[95mmodules[0m
+[34mINFO    [0m Set [33mANSIBLE_COLLECTIONS_PATH[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mcollections[0m:[35m/root/.ansible/[0m[95mcollections[0m:[35m/usr/share/ansible/[0m[95mcollections[0m
+[34mINFO    [0m Set [33mANSIBLE_ROLES_PATH[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mroles[0m:[35m/root/.ansible/[0m[95mroles[0m:[35m/usr/share/ansible/[0m[95mroles[0m:[35m/etc/ansible/[0m[95mroles[0m
+[34mINFO    [0m [2;36mRunning [0m[2;32mpodman[0m[2;36m > [0m[2;32mdependency[0m
+[31mWARNING [0m Skipping, missing the requirements file.
+[31mWARNING [0m Skipping, missing the requirements file.
+[34mINFO    [0m [2;36mRunning [0m[2;32mpodman[0m[2;36m > [0m[2;32mlint[0m
+COMMAND: ansible-lint
+yamllint
+
+Failed to locate command: [Errno 2] No such file or directory: 'git': 'git'
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py37-ansible210/bin/ansible-lint", line 8, in <module>
+    sys.exit(_run_cli_entrypoint())
+  File "/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/ansiblelint/__main__.py", line 299, in _run_cli_entrypoint
+    sys.exit(main(sys.argv))
+  File "/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/ansiblelint/__main__.py", line 211, in main
+    from ansiblelint.generate_docs import rules_as_rich, rules_as_rst, rules_as_str
+  File "/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/ansiblelint/generate_docs.py", line 6, in <module>
+    from rich.console import render_group
+ImportError: cannot import name 'render_group' from 'rich.console' (/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/rich/console.py)
+usage: yamllint [-h] [-] [-c CONFIG_FILE | -d CONFIG_DATA]
+                [-f {parsable,standard,colored,github,auto}] [-s]
+                [--no-warnings] [-v]
+                [FILE_OR_DIR [FILE_OR_DIR ...]]
+yamllint: error: one of the arguments FILE_OR_DIR - is required
+[1;31mCRITICAL[0m Lint failed with error code [1;36m2[0m
+[31mWARNING [0m An error occurred during the test sequence action: [32m'lint'[0m. Cleaning up.
+[34mINFO    [0m [2;36mRunning [0m[2;32mpodman[0m[2;36m > [0m[2;32mcleanup[0m
+[31mWARNING [0m Skipping, cleanup playbook not configured.
+[34mINFO    [0m [2;36mRunning [0m[2;32mpodman[0m[2;36m > [0m[2;32mdestroy[0m
+[34mINFO    [0m Sanity checks: [32m'podman'[0m
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Populate instance config] ************************************************
+[32mok: [localhost][0m
+
+TASK [Dump instance config] ****************************************************
+[36mskipping: [localhost][0m
+
+PLAY RECAP *********************************************************************
+[32mlocalhost[0m                  : [32mok=1   [0m changed=0    unreachable=0    failed=0    [36mskipped=1   [0m rescued=0    ignored=0
+
+[34mINFO    [0m Pruning extra files from scenario ephemeral directory
+ERROR: InvocationError for command /opt/vector-role/.tox/py37-ansible210/bin/molecule test -s podman --destroy always (exited with code 1)
+py37-ansible30 installed: ansible==3.0.0,ansible-base==2.10.17,ansible-compat==1.0.0,ansible-lint==5.1.3,arrow==1.2.3,bcrypt==4.1.1,binaryornot==0.4.4,bracex==2.3.post1,cached-property==1.5.2,Cerberus==1.3.5,certifi==2023.11.17,cffi==1.15.1,chardet==5.2.0,charset-normalizer==3.3.2,click==8.1.7,click-help-colors==0.9.4,cookiecutter==2.5.0,cryptography==41.0.7,distro==1.8.0,enrich==1.2.7,idna==3.6,importlib-metadata==6.7.0,Jinja2==3.1.2,jmespath==1.0.1,lxml==4.9.3,markdown-it-py==2.2.0,MarkupSafe==2.1.3,mdurl==0.1.2,molecule==3.5.2,molecule-podman==1.1.0,packaging==23.2,paramiko==2.12.0,pathspec==0.11.2,pluggy==1.2.0,pycparser==2.21,Pygments==2.17.2,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.31.0,rich==13.7.0,ruamel.yaml==0.18.5,ruamel.yaml.clib==0.2.8,selinux==0.2.1,six==1.16.0,subprocess-tee==0.3.5,tenacity==8.2.3,text-unidecode==1.3,typing_extensions==4.7.1,urllib3==2.0.7,wcmatch==8.4.1,yamllint==1.26.3,zipp==3.15.0
+py37-ansible30 run-test-pre: PYTHONHASHSEED='3008652691'
+py37-ansible30 run-test: commands[0] | molecule test -s podman --destroy always
+[34mINFO    [0m podman scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+[34mINFO    [0m Performing prerun[33m...[0m
+[34mINFO    [0m Set [33mANSIBLE_LIBRARY[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mmodules[0m:[35m/root/.ansible/plugins/[0m[95mmodules[0m:[35m/usr/share/ansible/plugins/[0m[95mmodules[0m
+[34mINFO    [0m Set [33mANSIBLE_COLLECTIONS_PATH[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mcollections[0m:[35m/root/.ansible/[0m[95mcollections[0m:[35m/usr/share/ansible/[0m[95mcollections[0m
+[34mINFO    [0m Set [33mANSIBLE_ROLES_PATH[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mroles[0m:[35m/root/.ansible/[0m[95mroles[0m:[35m/usr/share/ansible/[0m[95mroles[0m:[35m/etc/ansible/[0m[95mroles[0m
+[34mINFO    [0m [2;36mRunning [0m[2;32mpodman[0m[2;36m > [0m[2;32mdependency[0m
+[31mWARNING [0m Skipping, missing the requirements file.
+[31mWARNING [0m Skipping, missing the requirements file.
+[34mINFO    [0m [2;36mRunning [0m[2;32mpodman[0m[2;36m > [0m[2;32mlint[0m
+COMMAND: ansible-lint
+yamllint
+
+Failed to locate command: [Errno 2] No such file or directory: 'git': 'git'
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py37-ansible30/bin/ansible-lint", line 8, in <module>
+    sys.exit(_run_cli_entrypoint())
+  File "/opt/vector-role/.tox/py37-ansible30/lib/python3.7/site-packages/ansiblelint/__main__.py", line 299, in _run_cli_entrypoint
+    sys.exit(main(sys.argv))
+  File "/opt/vector-role/.tox/py37-ansible30/lib/python3.7/site-packages/ansiblelint/__main__.py", line 211, in main
+    from ansiblelint.generate_docs import rules_as_rich, rules_as_rst, rules_as_str
+  File "/opt/vector-role/.tox/py37-ansible30/lib/python3.7/site-packages/ansiblelint/generate_docs.py", line 6, in <module>
+    from rich.console import render_group
+ImportError: cannot import name 'render_group' from 'rich.console' (/opt/vector-role/.tox/py37-ansible30/lib/python3.7/site-packages/rich/console.py)
+usage: yamllint [-h] [-] [-c CONFIG_FILE | -d CONFIG_DATA]
+                [-f {parsable,standard,colored,github,auto}] [-s]
+                [--no-warnings] [-v]
+                [FILE_OR_DIR [FILE_OR_DIR ...]]
+yamllint: error: one of the arguments FILE_OR_DIR - is required
+[1;31mCRITICAL[0m Lint failed with error code [1;36m2[0m
+[31mWARNING [0m An error occurred during the test sequence action: [32m'lint'[0m. Cleaning up.
+[34mINFO    [0m [2;36mRunning [0m[2;32mpodman[0m[2;36m > [0m[2;32mcleanup[0m
+[31mWARNING [0m Skipping, cleanup playbook not configured.
+[34mINFO    [0m [2;36mRunning [0m[2;32mpodman[0m[2;36m > [0m[2;32mdestroy[0m
+[34mINFO    [0m Sanity checks: [32m'podman'[0m
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Populate instance config] ************************************************
+[32mok: [localhost][0m
+
+TASK [Dump instance config] ****************************************************
+[36mskipping: [localhost][0m
+
+PLAY RECAP *********************************************************************
+[32mlocalhost[0m                  : [32mok=1   [0m changed=0    unreachable=0    failed=0    [36mskipped=1   [0m rescued=0    ignored=0
+
+[34mINFO    [0m Pruning extra files from scenario ephemeral directory
+ERROR: InvocationError for command /opt/vector-role/.tox/py37-ansible30/bin/molecule test -s podman --destroy always (exited with code 1)
+py39-ansible210 installed: ansible==2.10.7,ansible-base==2.10.17,ansible-compat==4.1.10,ansible-core==2.15.6,ansible-lint==5.1.3,arrow==1.3.0,attrs==23.1.0,bcrypt==4.1.1,binaryornot==0.4.4,bracex==2.4,Cerberus==1.3.5,certifi==2023.11.17,cffi==1.16.0,chardet==5.2.0,charset-normalizer==3.3.2,click==8.1.7,click-help-colors==0.9.4,cookiecutter==2.5.0,cryptography==41.0.7,distro==1.8.0,enrich==1.2.7,idna==3.6,importlib-resources==5.0.7,Jinja2==3.1.2,jmespath==1.0.1,jsonschema==4.20.0,jsonschema-specifications==2023.11.2,lxml==4.9.3,markdown-it-py==3.0.0,MarkupSafe==2.1.3,mdurl==0.1.2,molecule==3.5.2,molecule-podman==2.0.0,packaging==23.2,paramiko==2.12.0,pathspec==0.11.2,pluggy==1.3.0,pycparser==2.21,Pygments==2.17.2,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,referencing==0.31.1,requests==2.31.0,resolvelib==1.0.1,rich==13.7.0,rpds-py==0.13.2,ruamel.yaml==0.18.5,ruamel.yaml.clib==0.2.8,selinux==0.3.0,six==1.16.0,subprocess-tee==0.4.1,tenacity==8.2.3,text-unidecode==1.3,types-python-dateutil==2.8.19.14,typing_extensions==4.8.0,urllib3==2.1.0,wcmatch==8.5,yamllint==1.26.3
+py39-ansible210 run-test-pre: PYTHONHASHSEED='3008652691'
+py39-ansible210 run-test: commands[0] | molecule test -s podman --destroy always
+[34mINFO    [0m podman scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+[34mINFO    [0m Performing prerun[33m...[0m
+[34mINFO    [0m Set [33mANSIBLE_LIBRARY[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mmodules[0m:[35m/root/.ansible/plugins/[0m[95mmodules[0m:[35m/usr/share/ansible/plugins/[0m[95mmodules[0m
+[34mINFO    [0m Set [33mANSIBLE_COLLECTIONS_PATH[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mcollections[0m:[35m/root/.ansible/[0m[95mcollections[0m:[35m/usr/share/ansible/[0m[95mcollections[0m
+[34mINFO    [0m Set [33mANSIBLE_ROLES_PATH[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mroles[0m:[35m/root/.ansible/[0m[95mroles[0m:[35m/usr/share/ansible/[0m[95mroles[0m:[35m/etc/ansible/[0m[95mroles[0m
+[34mINFO    [0m [2;36mRunning [0m[2;32mpodman[0m[2;36m > [0m[2;32mdependency[0m
+[34mINFO    [0m Running from [35m/opt/[0m[95mvector-role[0m : ansible-galaxy collection install -vvv containers.podman:>=[1;36m1.7[0m.[1;36m0[0m
+[31mWARNING [0m Retrying execution failure [1;36m250[0m of: ansible-galaxy collection install -vvv containers.podman:>=[1;36m1.7[0m.[1;36m0[0m
+[1;31mERROR   [0m Command returned [1;36m250[0m code:
+the full traceback was:
+
+Traceback [1m([0mmost recent call last[1m)[0m:
+  File [32m"/opt/vector-role/.tox/py39-ansible210/bin/ansible-galaxy"[0m, line [1;36m92[0m, in [1m<[0m[1;95mmodule[0m[39m>[0m
+[39m    mycli = [0m[1;35mgetattr[0m[1;39m([0m[1;35m__import__[0m[1;39m([0m[32m"ansible.cli.%s"[0m[39m % sub, [0m[33mfromlist[0m[39m=[0m[1;39m)[0m[39m, myclass[0m[1;39m)[0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/cli/galaxy.py"[0m[39m, line [0m[1;36m24[0m[39m, in <module>[0m
+[39m    from ansible.galaxy.collection import [0m[1;39m([0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/collection/__init__.py"[0m[39m, line [0m[1;36m90[0m[39m, in <module>[0m
+[39m    from ansible.galaxy.collection.concrete_artifact_manager import [0m[1;39m([0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/collection/concrete_artifact_manager.py"[0m[39m, line [0m[1;36m30[0m[39m, in <module[0m[1m>[0m
+    from ansible.galaxy.api import should_retry_error
+ImportError: cannot import name [32m'should_retry_error'[0m from [32m'ansible.galaxy.api'[0m [1m([0m[35m/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/[0m[95mapi.py[0m[1m)[0m
+
+[1m[[0m[1;36m0[0m;31mERROR! Unexpected Exception, this is probably a bug: cannot import name [32m'should_retry_error'[0m from [32m'ansible.galaxy.api'[0m [1m([0m[35m/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/[0m[95mapi.py[0m[1m)[0m[1m[[0m0m
+
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py39-ansible210/bin/molecule", line 8, in <module>
+    sys.exit(main())
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/test.py", line 159, in test
+    base.execute_cmdline_scenarios(scenario_name, args, command_args, ansible_args)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/base.py", line 118, in execute_cmdline_scenarios
+    execute_scenario(scenario)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/base.py", line 160, in execute_scenario
+    execute_subcommand(scenario.config, action)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/base.py", line 149, in execute_subcommand
+    return command(config).execute()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/logger.py", line 188, in wrapper
+    rt = func(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/dependency.py", line 74, in execute
+    self._config.dependency.execute()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/dependency/ansible_galaxy/__init__.py", line 76, in execute
+    invoker.execute()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/dependency/ansible_galaxy/base.py", line 120, in execute
+    super().execute()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/dependency/base.py", line 92, in execute
+    self._config.runtime.require_collection(name, version)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible_compat/runtime.py", line 748, in require_collection
+    self.install_collection(f"{name}:>={version}" if version else name)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible_compat/runtime.py", line 467, in install_collection
+    raise InvalidPrerequisiteError(msg)
+ansible_compat.errors.InvalidPrerequisiteError: Command returned 250 code:
+the full traceback was:
+
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py39-ansible210/bin/ansible-galaxy", line 92, in <module>
+    mycli = getattr(__import__("ansible.cli.%s" % sub, fromlist=[myclass]), myclass)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/cli/galaxy.py", line 24, in <module>
+    from ansible.galaxy.collection import (
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/collection/__init__.py", line 90, in <module>
+    from ansible.galaxy.collection.concrete_artifact_manager import (
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/collection/concrete_artifact_manager.py", line 30, in <module>
+    from ansible.galaxy.api import should_retry_error
+ImportError: cannot import name 'should_retry_error' from 'ansible.galaxy.api' (/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/api.py)
+
+[31mERROR! Unexpected Exception, this is probably a bug: cannot import name 'should_retry_error' from 'ansible.galaxy.api' (/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/api.py)[0m
+
+ERROR: InvocationError for command /opt/vector-role/.tox/py39-ansible210/bin/molecule test -s podman --destroy always (exited with code 1)
+py39-ansible30 installed: ansible==3.0.0,ansible-base==2.10.17,ansible-compat==4.1.10,ansible-core==2.15.6,ansible-lint==5.1.3,arrow==1.3.0,attrs==23.1.0,bcrypt==4.1.1,binaryornot==0.4.4,bracex==2.4,Cerberus==1.3.5,certifi==2023.11.17,cffi==1.16.0,chardet==5.2.0,charset-normalizer==3.3.2,click==8.1.7,click-help-colors==0.9.4,cookiecutter==2.5.0,cryptography==41.0.7,distro==1.8.0,enrich==1.2.7,idna==3.6,importlib-resources==5.0.7,Jinja2==3.1.2,jmespath==1.0.1,jsonschema==4.20.0,jsonschema-specifications==2023.11.2,lxml==4.9.3,markdown-it-py==3.0.0,MarkupSafe==2.1.3,mdurl==0.1.2,molecule==3.5.2,molecule-podman==2.0.0,packaging==23.2,paramiko==2.12.0,pathspec==0.11.2,pluggy==1.3.0,pycparser==2.21,Pygments==2.17.2,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,referencing==0.31.1,requests==2.31.0,resolvelib==1.0.1,rich==13.7.0,rpds-py==0.13.2,ruamel.yaml==0.18.5,ruamel.yaml.clib==0.2.8,selinux==0.3.0,six==1.16.0,subprocess-tee==0.4.1,tenacity==8.2.3,text-unidecode==1.3,types-python-dateutil==2.8.19.14,typing_extensions==4.8.0,urllib3==2.1.0,wcmatch==8.5,yamllint==1.26.3
+py39-ansible30 run-test-pre: PYTHONHASHSEED='3008652691'
+py39-ansible30 run-test: commands[0] | molecule test -s podman --destroy always
+[34mINFO    [0m podman scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+[34mINFO    [0m Performing prerun[33m...[0m
+[34mINFO    [0m Set [33mANSIBLE_LIBRARY[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mmodules[0m:[35m/root/.ansible/plugins/[0m[95mmodules[0m:[35m/usr/share/ansible/plugins/[0m[95mmodules[0m
+[34mINFO    [0m Set [33mANSIBLE_COLLECTIONS_PATH[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mcollections[0m:[35m/root/.ansible/[0m[95mcollections[0m:[35m/usr/share/ansible/[0m[95mcollections[0m
+[34mINFO    [0m Set [33mANSIBLE_ROLES_PATH[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mroles[0m:[35m/root/.ansible/[0m[95mroles[0m:[35m/usr/share/ansible/[0m[95mroles[0m:[35m/etc/ansible/[0m[95mroles[0m
+[34mINFO    [0m [2;36mRunning [0m[2;32mpodman[0m[2;36m > [0m[2;32mdependency[0m
+[34mINFO    [0m Running from [35m/opt/[0m[95mvector-role[0m : ansible-galaxy collection install -vvv containers.podman:>=[1;36m1.7[0m.[1;36m0[0m
+[31mWARNING [0m Retrying execution failure [1;36m250[0m of: ansible-galaxy collection install -vvv containers.podman:>=[1;36m1.7[0m.[1;36m0[0m
+[1;31mERROR   [0m Command returned [1;36m250[0m code:
+the full traceback was:
+
+Traceback [1m([0mmost recent call last[1m)[0m:
+  File [32m"/opt/vector-role/.tox/py39-ansible30/bin/ansible-galaxy"[0m, line [1;36m92[0m, in [1m<[0m[1;95mmodule[0m[39m>[0m
+[39m    mycli = [0m[1;35mgetattr[0m[1;39m([0m[1;35m__import__[0m[1;39m([0m[32m"ansible.cli.%s"[0m[39m % sub, [0m[33mfromlist[0m[39m=[0m[1;39m)[0m[39m, myclass[0m[1;39m)[0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/cli/galaxy.py"[0m[39m, line [0m[1;36m24[0m[39m, in <module>[0m
+[39m    from ansible.galaxy.collection import [0m[1;39m([0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/collection/__init__.py"[0m[39m, line [0m[1;36m90[0m[39m, in <module>[0m
+[39m    from ansible.galaxy.collection.concrete_artifact_manager import [0m[1;39m([0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/collection/concrete_artifact_manager.py"[0m[39m, line [0m[1;36m30[0m[39m, in <module[0m[1m>[0m
+    from ansible.galaxy.api import should_retry_error
+ImportError: cannot import name [32m'should_retry_error'[0m from [32m'ansible.galaxy.api'[0m [1m([0m[35m/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/[0m[95mapi.py[0m[1m)[0m
+
+[1m[[0m[1;36m0[0m;31mERROR! Unexpected Exception, this is probably a bug: cannot import name [32m'should_retry_error'[0m from [32m'ansible.galaxy.api'[0m [1m([0m[35m/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/[0m[95mapi.py[0m[1m)[0m[1m[[0m0m
+
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py39-ansible30/bin/molecule", line 8, in <module>
+    sys.exit(main())
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/test.py", line 159, in test
+    base.execute_cmdline_scenarios(scenario_name, args, command_args, ansible_args)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/base.py", line 118, in execute_cmdline_scenarios
+    execute_scenario(scenario)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/base.py", line 160, in execute_scenario
+    execute_subcommand(scenario.config, action)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/base.py", line 149, in execute_subcommand
+    return command(config).execute()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/logger.py", line 188, in wrapper
+    rt = func(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/dependency.py", line 74, in execute
+    self._config.dependency.execute()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/dependency/ansible_galaxy/__init__.py", line 76, in execute
+    invoker.execute()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/dependency/ansible_galaxy/base.py", line 120, in execute
+    super().execute()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/dependency/base.py", line 92, in execute
+    self._config.runtime.require_collection(name, version)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible_compat/runtime.py", line 748, in require_collection
+    self.install_collection(f"{name}:>={version}" if version else name)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible_compat/runtime.py", line 467, in install_collection
+    raise InvalidPrerequisiteError(msg)
+ansible_compat.errors.InvalidPrerequisiteError: Command returned 250 code:
+the full traceback was:
+
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py39-ansible30/bin/ansible-galaxy", line 92, in <module>
+    mycli = getattr(__import__("ansible.cli.%s" % sub, fromlist=[myclass]), myclass)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/cli/galaxy.py", line 24, in <module>
+    from ansible.galaxy.collection import (
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/collection/__init__.py", line 90, in <module>
+    from ansible.galaxy.collection.concrete_artifact_manager import (
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/collection/concrete_artifact_manager.py", line 30, in <module>
+    from ansible.galaxy.api import should_retry_error
+ImportError: cannot import name 'should_retry_error' from 'ansible.galaxy.api' (/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/api.py)
+
+[31mERROR! Unexpected Exception, this is probably a bug: cannot import name 'should_retry_error' from 'ansible.galaxy.api' (/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/api.py)[0m
+
+ERROR: InvocationError for command /opt/vector-role/.tox/py39-ansible30/bin/molecule test -s podman --destroy always (exited with code 1)
+___________________________________ summary ____________________________________
+ERROR:   py37-ansible210: commands failed
+ERROR:   py37-ansible30: commands failed
+ERROR:   py39-ansible210: commands failed
+ERROR:   py39-ansible30: commands failed
