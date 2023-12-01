@@ -1,33 +1,15 @@
 ---
-# tasks file for vector-role
-    - name: VECTOR | Get RPM Vector
-      ansible.builtin.get_url:
-        url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm"
-        dest: "./vector-{{ vector_version }}.rpm"
-        mode: "0644"
-      tags: vector
-    - name: VECTOR | Install vector package
-      become: true
-      ansible.builtin.yum:
-        name:
-          - vector-{{ vector_version }}.rpm
-      tags: vector
-    - name: VECTOR | Using vector template
-      become: true
-      ansible.builtin.template:
-        src: "templates/vector.conf.j2"
-        dest: "/etc/vector/vector.toml"
-        mode: "0644"
-    - name: VECTOR | create systemd unit
-      become: true
-      ansible.builtin.template:
-        src: "templates/vector.service.j2"
-        dest: "/etc/systemd/system/vector.service"
-        mode: "0644"
-    - name: VECTOR | Create vector configuration
-      become: true
-      ansible.builtin.file:
-        path: "{{ vector_conf_dir }}"
-        state: directory
-        mode: "0644"
-      tags: vector
+- ansible.builtin.include_tasks: deb.yml
+  when: ansible_os_family == "Debian"
+
+- ansible.builtin.include_tasks: rpm.yml
+  when: ansible_os_family == "RedHat"
+
+- name: VECTOR | Using vector template
+  become: true
+  become_method: su
+  ansible.builtin.template:
+    src: "templates/vector.conf.j2"
+    dest: "/etc/vector/vector.toml"
+    mode: "0644"
+  notify: Restart Vector service
