@@ -1,0 +1,1 @@
+Content for the file in the path variable

@@ -1,0 +1,5 @@
+---
+- name: Using my own module role
+  hosts: localhost
+  roles: 
+   - my_own_module_role

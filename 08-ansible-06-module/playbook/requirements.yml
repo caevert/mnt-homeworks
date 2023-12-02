@@ -1,0 +1,3 @@
+---
+- src: https://github.com/Muroway/my_own_module_role.git
+  scm: git
