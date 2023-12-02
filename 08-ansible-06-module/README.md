@@ -222,9 +222,6 @@ ok: [localhost] => {
 **Шаг 8.** Инициализируйте новую collection: `ansible-galaxy collection init my_own_namespace.yandex_cloud_elk`.
 
 
-
-TODO:
-
 **Шаг 9.** В эту collection перенесите свой module в соответствующую директорию.
 
 **Шаг 10.** Single task playbook преобразуйте в single task role и перенесите в collection. У role должны быть default всех параметров module.
@@ -239,7 +236,33 @@ TODO:
 
 **Шаг 15.** Установите collection из локального архива: `ansible-galaxy collection install <archivename>.tar.gz`.
 
+```
+ansible-galaxy collection install my_own_namespace-yandex_cloud_elk-1.0.0.tar.gz 
+Starting galaxy collection install process
+Process install dependency map
+Starting collection install process
+Installing 'my_own_namespace.yandex_cloud_elk:1.0.0' to '/home/ols/.ansible/collections/ansible_collections/my_own_namespace/yandex_cloud_elk'
+my_own_namespace.yandex_cloud_elk:1.0.0 was installed successfully
+
+```
+
 **Шаг 16.** Запустите playbook, убедитесь, что он работает.
+Не работает, пересобрать
+
+```json
+ERROR! couldn't resolve module/action 'my_own_module'. This often indicates a misspelling, missing collection, or incorrect module path.
+
+The error appears to be in '/home/ols/.ansible/roles/my_own_module_role/tasks/main.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Call my_own_module
+  ^ here
+```
+
+
 
 **Шаг 17.** В ответ необходимо прислать ссылки на collection и tar.gz архив, а также скриншоты выполнения пунктов 4, 6, 15 и 16.
 
