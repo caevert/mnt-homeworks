@@ -158,21 +158,72 @@ if __name__ == '__main__':
 ```
 Или возьмите это наполнение [из статьи](https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html#creating-a-module).
 
-
-TODO:
-
-
 **Шаг 3.** Заполните файл в соответствии с требованиями Ansible так, чтобы он выполнял основную задачу: module должен создавать текстовый файл на удалённом хосте по пути, определённом в параметре `path`, с содержимым, определённым в параметре `content`.
 
 **Шаг 4.** Проверьте module на исполняемость локально.
 
+Результат первого исполнения:
+
+```json
+changed: [localhost] => {
+    "changed": true,
+    "invocation": {
+        "module_args": {
+            "content": "Hello kitty",
+            "path": "./file.txt"
+        }
+    },
+    "message": "File created",
+    "original_message": "",
+    "orignal_message": "File created"
+}
+
+```
+
 **Шаг 5.** Напишите single task playbook и используйте module в нём.
+
+```yaml
+
+---
+- name: Testing module
+  hosts: localhost
+  tasks: 
+    - name: call my_own_module
+      my_own_module:
+        path: './file.txt'
+        content: 'Hello kitty'
+
+```
+
 
 **Шаг 6.** Проверьте через playbook на идемпотентность.
 
+Результат повторного исполнения:
+
+```json
+
+ok: [localhost] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "content": "Hello kitty",
+            "path": "./file.txt"
+        }
+    },
+    "message": "File is already exist",
+    "original_message": "File is already exist"
+}
+
+```
+
 **Шаг 7.** Выйдите из виртуального окружения.
 
+
 **Шаг 8.** Инициализируйте новую collection: `ansible-galaxy collection init my_own_namespace.yandex_cloud_elk`.
+
+
+
+TODO:
 
 **Шаг 9.** В эту collection перенесите свой module в соответствующую директорию.
 
