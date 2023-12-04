@@ -1,0 +1,3 @@
+---
+default_path: ./file.txt
+default_content: Content for the file in the path variable
