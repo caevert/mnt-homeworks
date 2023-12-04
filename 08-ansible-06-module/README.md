@@ -230,6 +230,8 @@ ok: [localhost] => {
 
 **Шаг 12.** Заполните всю документацию по collection, выложите в свой репозиторий, поставьте тег `1.0.0` на этот коммит.
 
+
+
 **Шаг 13.** Создайте .tar.gz этой collection: `ansible-galaxy collection build` в корневой директории collection.
 
 **Шаг 14.** Создайте ещё одну директорию любого наименования, перенесите туда single task playbook и архив c collection.
@@ -250,16 +252,21 @@ my_own_namespace.yandex_cloud_elk:1.0.0 was installed successfully
 Не работает, пересобрать
 
 ```json
-ERROR! couldn't resolve module/action 'my_own_module'. This often indicates a misspelling, missing collection, or incorrect module path.
+~/homeworks/mnt-homeworks/08-ansible-06-module/testing/single-task-playbook$ ansible-playbook site.yml 
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not
+match 'all'
 
-The error appears to be in '/home/ols/.ansible/roles/my_own_module_role/tasks/main.yml': line 2, column 3, but may
-be elsewhere in the file depending on the exact syntax problem.
+PLAY [Testing module] ***********************************************************************************************
 
-The offending line appears to be:
+TASK [Gathering Facts] **********************************************************************************************
+ok: [localhost]
 
----
-- name: Call my_own_module
-  ^ here
+TASK [Call my_own_module] *******************************************************************************************
+changed: [localhost]
+
+PLAY RECAP **********************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 ```
 
 
