@@ -177,13 +177,11 @@ changed: [localhost] => {
     "original_message": "",
     "orignal_message": "File created"
 }
-
 ```
 
 **Шаг 5.** Напишите single task playbook и используйте module в нём.
 
 ```yaml
-
 ---
 - name: Testing module
   hosts: localhost
@@ -192,7 +190,6 @@ changed: [localhost] => {
       my_own_module:
         path: './file.txt'
         content: 'Hello kitty'
-
 ```
 
 
@@ -201,7 +198,6 @@ changed: [localhost] => {
 Результат повторного исполнения:
 
 ```json
-
 ok: [localhost] => {
     "changed": false,
     "invocation": {
@@ -213,7 +209,6 @@ ok: [localhost] => {
     "message": "File is already exist",
     "original_message": "File is already exist"
 }
-
 ```
 
 **Шаг 7.** Выйдите из виртуального окружения.
@@ -238,7 +233,7 @@ ok: [localhost] => {
 
 **Шаг 15.** Установите collection из локального архива: `ansible-galaxy collection install <archivename>.tar.gz`.
 
-```
+~~~
 ansible-galaxy collection install my_own_namespace-yandex_cloud_elk-1.0.0.tar.gz 
 Starting galaxy collection install process
 Process install dependency map
@@ -246,12 +241,11 @@ Starting collection install process
 Installing 'my_own_namespace.yandex_cloud_elk:1.0.0' to '/home/ols/.ansible/collections/ansible_collections/my_own_namespace/yandex_cloud_elk'
 my_own_namespace.yandex_cloud_elk:1.0.0 was installed successfully
 
-```
+~~~
 
 **Шаг 16.** Запустите playbook, убедитесь, что он работает.
-Не работает, пересобрать
 
-```json
+~~~
 ~/homeworks/mnt-homeworks/08-ansible-06-module/testing/single-task-playbook$ ansible-playbook site.yml 
 [WARNING]: No inventory was parsed, only implicit localhost is available
 [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not
@@ -267,7 +261,8 @@ changed: [localhost]
 
 PLAY RECAP **********************************************************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
-```
+
+~~~
 
 
 
