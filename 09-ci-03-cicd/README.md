@@ -29,9 +29,9 @@
 
 ![VirtualBox_FEDORA_05_12_2023_22_55_24](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/570622f5-cb7c-438a-88d6-46db90f7a17f)
 
-![VirtualBox_FEDORA_05_12_2023_22_49_31](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/79f0c61a-f960-4369-943d-7f4ca806e823)
-
 ![VirtualBox_FEDORA_05_12_2023_22_47_53](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/51c45459-6629-48a6-b958-98c321422981)
+
+![VirtualBox_FEDORA_05_12_2023_22_49_31](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/79f0c61a-f960-4369-943d-7f4ca806e823)
 
 
 ## Знакомство с Nexus
@@ -76,7 +76,18 @@ https://github.com/AlexanderM33/mnt-homeworks-m/blob/MNT-video/09-ci-03-cicd/mav
 1. Поменяйте в `pom.xml` блок с зависимостями под ваш артефакт из первого пункта задания для Nexus (java с версией 8_282).
 2. Запустите команду `mvn package` в директории с `pom.xml`, ожидайте успешного окончания.
 3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.
+
+https://github.com/AlexanderM33/mnt-homeworks-m/tree/MNT-video/09-ci-03-cicd/repository
+
 4. В ответе пришлите исправленный файл `pom.xml`.
+
+https://github.com/AlexanderM33/mnt-homeworks-m/blob/MNT-video/09-ci-03-cicd/mvn/pom.xml
+
+![VirtualBox_FEDORA_05_12_2023_23_39_38](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/f41864a4-56a1-497c-b7ef-5bf84ad33c9e)
+
+
+
+
 
 ---
 
