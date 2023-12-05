@@ -27,6 +27,12 @@
 
 ## Решение
 
+![VirtualBox_FEDORA_05_12_2023_22_55_24](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/570622f5-cb7c-438a-88d6-46db90f7a17f)
+
+![VirtualBox_FEDORA_05_12_2023_22_49_31](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/79f0c61a-f960-4369-943d-7f4ca806e823)
+
+![VirtualBox_FEDORA_05_12_2023_22_47_53](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/51c45459-6629-48a6-b958-98c321422981)
+
 
 ## Знакомство с Nexus
 
@@ -43,6 +49,17 @@
 2. В него же загрузите такой же артефакт, но с version: 8_102.
 3. Проверьте, что все файлы загрузились успешно.
 4. В ответе пришлите файл `maven-metadata.xml` для этого артефекта.
+
+https://github.com/AlexanderM33/mnt-homeworks-m/blob/MNT-video/09-ci-03-cicd/maven-metadata.xml
+
+![VirtualBox_FEDORA_05_12_2023_23_19_21](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/9d60e956-697d-4339-ba85-a2135ebf1686)
+
+![VirtualBox_FEDORA_05_12_2023_23_19_07](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/ba72e7c4-baa4-4bf0-9859-26a0718bb6ed)
+
+![VirtualBox_FEDORA_05_12_2023_23_17_36](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/c3c324ea-380a-41f9-bd3c-54fba7f186f8)
+
+
+
 
 ### Знакомство с Maven
 
