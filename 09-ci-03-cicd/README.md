@@ -27,6 +27,7 @@
 
 ## Решение
 
+
 ![VirtualBox_FEDORA_05_12_2023_22_55_24](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/570622f5-cb7c-438a-88d6-46db90f7a17f)
 
 ![VirtualBox_FEDORA_05_12_2023_22_47_53](https://github.com/AlexanderM33/mnt-homeworks-m/assets/122460278/51c45459-6629-48a6-b958-98c321422981)
