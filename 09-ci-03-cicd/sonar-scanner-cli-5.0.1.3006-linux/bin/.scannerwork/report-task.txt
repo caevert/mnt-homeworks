@@ -1,0 +1,6 @@
+projectKey=netology-soft
+serverUrl=http://62.84.120.238:9000
+serverVersion=9.1.0.47736
+dashboardUrl=http://62.84.120.238:9000/dashboard?id=netology-soft
+ceTaskId=AYw2lTGSqsFskb6cxkQG
+ceTaskUrl=http://62.84.120.238:9000/api/ce/task?id=AYw2lTGSqsFskb6cxkQG
