@@ -12,3 +12,4 @@ site_vector.yml
 *.deb
 sonar-scaner-*
 apache-maven-*
+id_*
