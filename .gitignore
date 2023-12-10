@@ -10,3 +10,5 @@ site_vector.yml
 *.zip
 *.rpm
 *.deb
+sonar-scaner-*
+apache-maven-*

@@ -21,7 +21,7 @@
 4. Проверьте `sonar-scanner --version`.
 5. Запустите анализатор против кода из директории [example](./example) с дополнительным ключом `-Dsonar.coverage.exclusions=fail.py`.
 
-```
+```bash
 sonar-scanner \
   -Dsonar.projectKey=My-sonar-project \
   -Dsonar.sources=. \
@@ -32,7 +32,7 @@ sonar-scanner \
 
 ...
 
-```
+```bash
 INFO: ANALYSIS SUCCESSFUL, you can browse http://130.193.53.86:9000/dashboard?id=My-sonar-project
 INFO: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
 INFO: More about the report processing at http://130.193.53.86:9000/api/ce/task?id=AYxUMByKJisD8RU1d2h8
@@ -59,7 +59,7 @@ INFO: ------------------------------------------------------------------------
 
 8. Запустите анализатор повторно — проверьте, что QG пройдены успешно.
 
-```
+```bash
 INFO: ANALYSIS SUCCESSFUL, you can browse http://130.193.53.86:9000/dashboard?id=My-sonar-project
 INFO: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
 INFO: More about the report processing at http://130.193.53.86:9000/api/ce/task?id=AYxUPBzaJisD8RU1d2h-
@@ -90,6 +90,11 @@ INFO: ------------------------------------------------------------------------
 * classifier: distrib;
 * type: tar.gz.
 
+Вместо java использовал артефакт из задания про SonarQube:
+
+[Артефакт fail.py ](./example/fail.py)
+
+
 <p align="center">
   <image src="./assets/nexus1_release.png">
 </p>
@@ -119,8 +124,32 @@ INFO: ------------------------------------------------------------------------
 
 1. Поменяйте в `pom.xml` блок с зависимостями под ваш артефакт из первого пункта задания для Nexus (java с версией 8_282).
 2. Запустите команду `mvn package` в директории с `pom.xml`, ожидайте успешного окончания.
+
+<p align="center">
+  <image src="./assets/maven1_pom.png">
+</p>
+
 3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.
+
+```bash
+~/.m2/repository/netology/python/8_282$ cat python-8_282-distrib.py
+def increment(index=0):
+    index += 1
+    return index
+def get_square(numb):
+    return numb*numb
+def print_numb(numb):
+    print("Number is {}".format(numb))
+
+index = 0
+while (index < 10):
+    index = increment(index)
+    print(get_square(index))
+
+```
 4. В ответе пришлите исправленный файл `pom.xml`.
+
+    [pom.xml](./mvn/pom.xml)
 
 ---
 
