@@ -10,9 +10,6 @@ platforms:
   - name: centos7
     image: pycontribs/centos:7
     pre_build_image: true
-lint: |
-  ansible-lint
-  yamllint
 provisioner:
   name: ansible
 verifier:

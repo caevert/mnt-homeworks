@@ -5,6 +5,6 @@
   become_method: su
   gather_facts: true
   tasks:
-  - name: "Include vector-role"
+  - name: Include vector role
     include_role:
-      name: "vector-role"
+      name: vector-role

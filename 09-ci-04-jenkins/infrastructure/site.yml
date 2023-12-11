@@ -117,6 +117,15 @@
         name:
           - selinux
         state: forcereinstall
+    - name: Install molecule
+      become_user: root
+      pip:
+        executable: pip3
+        name:
+          - molecule
+          - molecule-docker
+          - molecule-podman
+        state: present
     - name: Add local to PATH
       lineinfile:
         dest: ~/.bashrc

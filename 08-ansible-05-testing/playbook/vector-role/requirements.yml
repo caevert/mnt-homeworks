@@ -1,0 +1,3 @@
+- src: https://github.com/Muroway/vector-role.git
+  scm: git
+  name: vector
