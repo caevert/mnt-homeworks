@@ -78,6 +78,8 @@
 
 7. Проверить работоспособность, исправить ошибки, исправленный Pipeline вложить в репозиторий в файл `ScriptedJenkinsfile`.
 
+    [Измененный Scripted Pipeline](./pipeline/ScriptedJenkinsfile)
+
     Для исправления ошибки с неработающим become:
 
 ```
