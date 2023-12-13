@@ -108,15 +108,15 @@
         executable: pip3
         name:
           - selinux
-          - ansible<3.0
+          - ansible
         state: present
-    - name: Reinstall Selinux
-      become_user: root
-      pip:
-        executable: pip3
-        name:
-          - selinux
-        state: forcereinstall
+    #- name: Reinstall Selinux
+    # become_user: root
+    #pip:
+    # executable: pip3
+    #name:
+    # - selinux
+    #state: forcereinstall
     - name: Install molecule
       become_user: root
       pip:
@@ -155,4 +155,3 @@
       until: install_agent is succeeded
       retries: 10
       timeout: 10
-
