@@ -52,6 +52,24 @@ Configuration (with the authentication token) was saved in "/etc/gitlab-runner/c
 6. Точка вызова: запуск скрипта.
 7. При комите в любую ветку должен собираться docker image с форматом имени hello:gitlab-$CI_COMMIT_SHORT_SHA . Образ должен быть выложен в Gitlab registry или yandex registry.
 
+<p align="center">
+  <image src="./assets/gitlab_image_1.png"
+</p>
+
+[Образ в Yandex Container Registry](https://console.cloud.yandex.ru/folders/b1gtj97ibqlu8jsd94g4/container-registry/registries/crp82kjfktp04r8sq6hq/overview/hello/image)
+
+---
+***NOTE***
+
+Релиз в Yandex Container Registry:
+```bash
+sudo docker login --username oauth --password-stdin cr.yandex
+docker tag dd4af15a354b cr.yandex/crp82kjfktp04r8sq6hq/hello:gitlab-69e41473
+docker push cr.yandex/crp82kjfktp04r8sq6hq/hello:gitlab-69e41473 
+```
+---
+
+
 ### Product Owner
 
 Вашему проекту нужна бизнесовая доработка: нужно поменять JSON ответа на вызов метода GET `/rest/api/get_info`, необходимо создать Issue в котором указать:
@@ -59,6 +77,10 @@ Configuration (with the authentication token) was saved in "/etc/gitlab-runner/c
 1. Какой метод необходимо исправить.
 2. Текст с `{ "message": "Already started" }` на `{ "message": "Running"}`.
 3. Issue поставить label: feature.
+
+<p align="center">
+  <image src="./assets/gitlab_p_owner_1.png"
+</p>
 
 ### Developer
 
@@ -68,11 +90,24 @@ Configuration (with the authentication token) was saved in "/etc/gitlab-runner/c
 2. Внести изменения по тексту из задания.
 3. Подготовить Merge Request, влить необходимые изменения в `master`, проверить, что сборка прошла успешно.
 
+<p align="center">
+  <image src="./assets/gitlab_proger_2.png"
+</p>
+
 ### Tester
 
 Разработчики выполнили новый Issue, необходимо проверить валидность изменений:
 
 1. Поднять докер-контейнер с образом `python-api:latest` и проверить возврат метода на корректность.
+
+
+
+<p align="center">
+  <image src="./assets/gitlab_testing_1.png"
+</p>
+
+
+
 2. Закрыть Issue с комментарием об успешности прохождения, указав желаемый результат и фактически достигнутый.
 
 ## Итог
@@ -80,9 +115,34 @@ Configuration (with the authentication token) was saved in "/etc/gitlab-runner/c
 В качестве ответа пришлите подробные скриншоты по каждому пункту задания:
 
 - файл gitlab-ci.yml;
+
+<p align="center">
+  <image src="./assets/gitlab_ci_yml_1.png"
+</p>
+
 - Dockerfile;
+
+<p align="center">
+  <image src="./assets/gitlab_Dockerfile.png"
+</p>
+
 - лог успешного выполнения пайплайна;
+
+
+<p align="center">
+  <image src="./assets/gitlab_build_log.png"
+</p>
+
+<p align="center">
+  <image src="./assets/gitlab_deploy_log.png"
+</p>
+
+
 - решённый Issue.
+
+<p align="center">
+  <image src="./assets/gitlab_testing_2.png"
+</p>
 
 ### Важно
 

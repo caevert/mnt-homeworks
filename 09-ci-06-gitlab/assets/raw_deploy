@@ -1,0 +1,88 @@
+[0KRunning with gitlab-runner 16.6.1 (f5da3c5a)[0;m
+[0K  on ubuntu-gitlab-runner cAckgDnx, system ID: s_b9ab8cdd7dc7[0;m
+section_start:1702931796:prepare_executor
+[0K[0K[36;1mPreparing the "shell" executor[0;m[0;m
+[0KUsing Shell (bash) executor...[0;m
+section_end:1702931796:prepare_executor
+[0Ksection_start:1702931796:prepare_script
+[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on gitlab-runner...
+section_end:1702931796:prepare_script
+[0Ksection_start:1702931796:get_sources
+[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Reinitialized existing Git repository in /home/gitlab-runner/builds/cAckgDnx/0/ols/my-awesome-project-for-netology/.git/
+[32;1mChecking out 964b1728 as detached HEAD (ref is main)...[0;m
+[32;1mSkipping Git submodules setup[0;m
+section_end:1702931796:get_sources
+[0Ksection_start:1702931796:step_script
+[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[32;1m$ docker build -t muroway-instance.gitlab.yandexcloud.net:5050/ols/my-awesome-project-for-netology/hello:gitlab-$CI_COMMIT_SHORT_SHA .[0;m
+#0 building with "default" instance using docker driver
+
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 889B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/centos:7
+#3 DONE 0.2s
+
+#4 [1/6] FROM docker.io/library/centos:7@sha256:be65f488b7764ad3638f236b7b515b3678369a5124c47b8d32916d6487418ea4
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 70B done
+#5 DONE 0.0s
+
+#6 [4/6] RUN pip3 install -r requirements.txt
+#6 CACHED
+
+#7 [5/6] RUN mkdir /python-api
+#7 CACHED
+
+#8 [2/6] RUN yum update -q -y   && yum install -q -y epel-release wget make git gcc openssl-devel bzip2-devel libffi-devel python3 python-pip   && cd /usr/src   && wget https://www.python.org/ftp/python/3.7.11/Python-3.7.11.tgz   && tar xzf Python-3.7.11.tgz   && cd Python-3.7.11   && ./configure --enable-optimizations   && make altinstall   && rm -rf /usr/src/Python-3.7.11.tgz   && alternatives --install /usr/bin/python python /usr/bin/python2 50   && alternatives --install /usr/bin/python python /usr/local/bin/python3.7 70   && alternatives --set python /usr/local/bin/python3.7   && ln -s /usr/local/bin/pip3.7 /usr/bin/pip
+#8 CACHED
+
+#9 [3/6] COPY requirements.txt requirements.txt
+#9 CACHED
+
+#10 [6/6] COPY python-api.py /python-api/python-api.py
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 writing image sha256:dd4af15a354bf885bf241bb28462b2f5336cb4bca9b8d120f76717cb7f1b487d done
+#11 naming to muroway-instance.gitlab.yandexcloud.net:5050/ols/my-awesome-project-for-netology/hello:gitlab-964b1728 done
+#11 DONE 0.0s
+[32;1m$ docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY[0;m
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /home/gitlab-runner/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[32;1m$ docker push muroway-instance.gitlab.yandexcloud.net:5050/ols/my-awesome-project-for-netology/hello:gitlab-$CI_COMMIT_SHORT_SHA[0;m
+The push refers to repository [muroway-instance.gitlab.yandexcloud.net:5050/ols/my-awesome-project-for-netology/hello]
+bc37bef7430d: Preparing
+c527355ed703: Preparing
+632e02198211: Preparing
+7ac9673d9503: Preparing
+446a6ecfc335: Preparing
+174f56854903: Preparing
+174f56854903: Waiting
+c527355ed703: Layer already exists
+632e02198211: Layer already exists
+7ac9673d9503: Layer already exists
+446a6ecfc335: Layer already exists
+bc37bef7430d: Layer already exists
+174f56854903: Layer already exists
+gitlab-964b1728: digest: sha256:cfacf74dfdc8350a20ac0caeaec80ebf979eeeaac5458b5f5b711760e1ab262c size: 1574
+section_end:1702931798:step_script
+[0Ksection_start:1702931798:cleanup_file_variables
+[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1702931798:cleanup_file_variables
+[0K[32;1mJob succeeded[0;m
