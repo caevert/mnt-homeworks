@@ -2,12 +2,37 @@
 
 ## Подготовка к выполнению
 
-
 1. Или подготовьте к работе Managed GitLab от yandex cloud [по инструкции](https://cloud.yandex.ru/docs/managed-gitlab/operations/instance/instance-create) .
 Или создайте виртуальную машину из публичного образа [по инструкции](https://cloud.yandex.ru/marketplace/products/yc/gitlab ) .
 2. Создайте виртуальную машину и установите на нее gitlab runner, подключите к вашему серверу gitlab  [по инструкции](https://docs.gitlab.com/runner/install/linux-repository.html) .
 
-3. (* Необязательное задание повышенной сложности. )  Если вы уже знакомы с k8s попробуйте выполнить задание, запустив gitlab server и gitlab runner в k8s  [по инструкции](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/gitlab-containers). 
+Регистрация раннера:
+
+```bash
+sudo gitlab-runner register
+Runtime platform                                    arch=amd64 os=linux pid=2620 revision=f5da3c5a version=16.6.1
+Running in system-mode.
+
+Enter the GitLab instance URL (for example, https://gitlab.com/):
+https://muroway-instance.gitlab.yandexcloud.net/
+Enter the registration token:
+*************************
+Enter a description for the runner:
+[gitlab-runner]: ubuntu-gitlab-runner
+Enter tags for the runner (comma-separated):
+ubuntu, gitlab, linux
+Enter optional maintenance note for the runner:
+
+WARNING: Support for registration tokens and runner parameters in the 'register' command has been deprecated in GitLab Runner 15.6 and will be replaced with support for authentication tokens. For more information, see https://docs.gitlab.com/ee/ci/runners/new_creation_workflow
+Registering runner... succeeded                     runner=ESfZBevE
+Enter an executor: docker-autoscaler, docker+machine, kubernetes, docker-windows, shell, ssh, virtualbox, instance, custom, docker, parallels:
+shell
+Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
+
+Configuration (with the authentication token) was saved in "/etc/gitlab-runner/config.toml"
+```
+
+3. (* Необязательное задание повышенной сложности. )  Если вы уже знакомы с k8s попробуйте выполнить задание, запустив gitlab server и gitlab runner в k8s  [по инструкции](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/gitlab-containers).
 
 4. Создайте свой новый проект.
 5. Создайте новый репозиторий в GitLab, наполните его [файлами](./repository).
@@ -25,7 +50,7 @@
 4. Создана директория `/python_api`.
 5. Скрипт из репозитория размещён в /python_api.
 6. Точка вызова: запуск скрипта.
-7. При комите в любую ветку должен собираться docker image с форматом имени hello:gitlab-$CI_COMMIT_SHORT_SHA . Образ должен быть выложен в Gitlab registry или yandex registry.   
+7. При комите в любую ветку должен собираться docker image с форматом имени hello:gitlab-$CI_COMMIT_SHORT_SHA . Образ должен быть выложен в Gitlab registry или yandex registry.
 
 ### Product Owner
 
@@ -43,7 +68,6 @@
 2. Внести изменения по тексту из задания.
 3. Подготовить Merge Request, влить необходимые изменения в `master`, проверить, что сборка прошла успешно.
 
-
 ### Tester
 
 Разработчики выполнили новый Issue, необходимо проверить валидность изменений:
@@ -56,10 +80,10 @@
 В качестве ответа пришлите подробные скриншоты по каждому пункту задания:
 
 - файл gitlab-ci.yml;
-- Dockerfile; 
+- Dockerfile;
 - лог успешного выполнения пайплайна;
 - решённый Issue.
 
-### Важно 
-После выполнения задания выключите и удалите все задействованные ресурсы в Yandex Cloud.
+### Важно
 
+После выполнения задания выключите и удалите все задействованные ресурсы в Yandex Cloud.
