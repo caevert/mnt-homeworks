@@ -1,0 +1,3 @@
+[submodule "10-monitoring-02-systems/10-monitoring-02-systems/TICK_repo"]
+	path = 10-monitoring-02-systems/10-monitoring-02-systems/TICK_repo
+	url = https://github.com/Muroway/mnt-homeworks.git
