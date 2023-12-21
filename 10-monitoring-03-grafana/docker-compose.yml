@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   prometheus:
-    image: prom/prometheus:v2.24.1
+    image: prom/prometheus
     container_name: prometheus
     volumes:
       - ./prometheus:/etc/prometheus:Z
@@ -23,7 +23,7 @@ services:
       - monitor-net
 
   nodeexporter:
-    image: prom/prometheus:v1.0.1
+    image: prom/node-exporter
     container_name: nodeexporter
     volumes:
       - /proc:/host/proc:ro
@@ -33,7 +33,7 @@ services:
       - '--path.procfs=/host/proc'
       - '--path.rootfs=/rootfs'
       - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.ingnored-mount-points=^(sys|proc|dev|host|etc)($$|/)'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
     restart: unless-stopped
     expose:
       - 9100
@@ -41,7 +41,7 @@ services:
       - monitor-net
 
   grafana:
-    image: grafana/grafana:7.4.0
+    image: grafana/grafana
     container_name: grafana
     volumes:
       - grafana_data:/var/lib/grafana
