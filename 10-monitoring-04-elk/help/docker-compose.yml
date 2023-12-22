@@ -15,10 +15,7 @@ services:
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=es-hot,es-warm
       - cluster.initial_master_nodes=es-hot,es-warm
-<<<<<<< HEAD
       - bootstrap.memory_lock=true
-=======
->>>>>>> origin
       - node.roles=master,data_content,data_hot  
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - "http.host=0.0.0.0"
@@ -47,10 +44,7 @@ services:
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=es-hot,es-warm
       - cluster.initial_master_nodes=es-hot,es-warm
-<<<<<<< HEAD
       - bootstrap.memory_lock=true
-=======
->>>>>>> origin
       - node.roles=master,data_warm
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - xpack.security.enabled=false
@@ -82,12 +76,7 @@ services:
       - es-warm
 
   logstash:
-<<<<<<< HEAD
     image: logstash:6.5.1
-
-=======
-    image: logstash:8.7.0
->>>>>>> origin
     container_name: logstash
     environment:
       - "LS_JAVA_OPTS=-Xms256m -Xmx256m"
@@ -104,11 +93,7 @@ services:
       - es-warm
 
   filebeat:
-<<<<<<< HEAD
     image: elastic/filebeat:7.2.0
-=======
-    image: elastic/filebeat:8.7.0
->>>>>>> origin
     container_name: filebeat
     privileged: true
     user: root
