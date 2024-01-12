@@ -70,9 +70,6 @@ node_filesystem_size_bytes{mountpoint=\"/\",fstype!=\"rootfs\"}
 1. В качестве решения задания приведите листинг этого файла.
 
 ```
-
-
-```
 {
   "annotations": {
     "list": [
@@ -684,6 +681,9 @@ node_filesystem_size_bytes{mountpoint=\"/\",fstype!=\"rootfs\"}
   "uid": "51Dzs6FSk",
   "version": 6
 }
+
+```
+
 ---
 
 ### Как оформить решение задания
