@@ -1,4 +1,4 @@
-1def increment(index=0):
+def increment(index=0):
     index += 1
     return index
 def get_square(numb):
