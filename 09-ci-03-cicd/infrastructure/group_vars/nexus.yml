@@ -1,4 +1,4 @@
-1---
+---
 nexus_user_group: nexus
 nexus_user_name: nexus
 nexus_directory_data: "/home/{{ nexus_user_name }}/sonatype-work/nexus3"
