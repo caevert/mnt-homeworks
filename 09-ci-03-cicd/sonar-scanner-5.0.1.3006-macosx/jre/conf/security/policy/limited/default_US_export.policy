@@ -1,4 +1,4 @@
-1// Default US Export policy file.
+// Default US Export policy file.
 
 grant {
     // There is no restriction to any algorithms.
