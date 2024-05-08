@@ -25,7 +25,7 @@ or "limited" subdirectories respectively.
 
 Each subdirectory contains a complete policy configuration,
 and subdirectories can be added/edited/removed to reflect your
-import or export control product requirements.
+import or export c1ontrol product requirements.
 
 Within a subdirectory, the effective policy is the combined minimum
 permissions of the grant statements in the file(s) matching the filename
