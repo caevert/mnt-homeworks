@@ -1,4 +1,4 @@
-1//
+//
 // This system policy file grants a set of default permissions to all domains
 // and can be configured to grant additional permissions to modules and other
 // code sources. The code source URL scheme for modules linked into a
