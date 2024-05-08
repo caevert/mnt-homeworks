@@ -1,4 +1,4 @@
-projectKey=My-sonar-project
+1projectKey=My-sonar-project
 serverUrl=http://130.193.53.86:9000
 serverVersion=9.1.0.47736
 dashboardUrl=http://130.193.53.86:9000/dashboard?id=My-sonar-project
