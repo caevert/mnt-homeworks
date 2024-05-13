@@ -1,4 +1,4 @@
----
+1---
 - name: Preapre all hosts
   hosts: all
   tasks:
