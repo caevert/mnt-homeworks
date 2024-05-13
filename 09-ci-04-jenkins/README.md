@@ -37,7 +37,13 @@
 
 
 
-    [Jenkinsfile](https://github.com/Muroway/vector-role/blob/master/Jenkinsfile)
+    [Jenkinsfile](<p align="center">
+  <image src="./assetsJenkinsfile.txt"
+</p>
+
+<p align="center">
+  <image src="./assets/Declarative_pipe2.png"
+</p>)
 
 
 
