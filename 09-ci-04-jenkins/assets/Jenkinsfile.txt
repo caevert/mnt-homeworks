@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('git') {
             steps {
-                git branch: 'master', credentialsId: 'Muroway_github', url: 'https://github.com/Muroway/vector-role.git'
+                git branch: 'master', credentialsId: 'caevert_github', url: 'https://github.com/caevert/mnt-homeworks/blob/master/09-ci-04-jenkins/assets'
             }
         }
         stage('Molecule test in docker') {
