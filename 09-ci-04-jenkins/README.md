@@ -34,12 +34,11 @@
 </p>
 
 3. Перенести Declarative Pipeline в репозиторий в файл `Jenkinsfile`.
+   
+
+   [Jenkinsfile](https://github.com/Muroway/vector-role/blob/master/Jenkinsfile)
 
 
-
-    [Jenkinsfile]([<p align="center">
-  <image src="./assetsJenkinsfile.txt"
-</p>
 
 <p align="center">
   <image src="./assets/Declarative_pipe2.png"
