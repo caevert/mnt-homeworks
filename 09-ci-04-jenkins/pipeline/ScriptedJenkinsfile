@@ -1,4 +1,4 @@
-node("ansible"){
+1node("ansible"){
     stage("Git checkout"){
         git credentialsId: 'Muroway_github', url: 'https://github.com/Muroway/example-playbook.git'
     }
