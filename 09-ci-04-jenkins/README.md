@@ -36,7 +36,7 @@
 3. Перенести Declarative Pipeline в репозиторий в файл `Jenkinsfile`.
    
 
-   [Jenkinsfile](https://github.com/Muroway/vector-role/blob/master/Jenkinsfile)
+   [Jenkinsfile](https://github.com/caevert/mnt-homeworks/blob/master/09-ci-04-jenkins/assets/Jenkinsfile.txt)
 
 
 
