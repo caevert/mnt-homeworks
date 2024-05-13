@@ -36,7 +36,7 @@
 3. Перенести Declarative Pipeline в репозиторий в файл `Jenkinsfile`.
    
 
-   [Jenkinsfile](https://github.com/caevert/mnt-homeworks/blob/master/09-ci-04-jenkins/assets/Jenkinsfile.txt)
+   [Jenkinsfile](https://github.com/caevert/mnt-homeworks/blob/master/09-ci-04-jenkins/assets/Jenkinsfile)
 
 
 
@@ -96,7 +96,7 @@ jenkins ALL=(ALL) NOPASSWD: ALL
 
 8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
 
-    [Declarative Pipeline для Vector-role](https://github.com/Muroway/vector-role/blob/master/Jenkinsfile)
+    [Declarative Pipeline для Vector-role](https://github.com/caevert/mnt-homeworks/blob/master/09-ci-04-jenkins/assets/Jenkinsfile)
 
     [Измененный Scripted Pipeline](./pipeline/ScriptedJenkinsfile)
 
