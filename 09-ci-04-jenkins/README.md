@@ -37,13 +37,13 @@
 
 
 
-    [Jenkinsfile](<p align="center">
+    [Jenkinsfile]([<p align="center">
   <image src="./assetsJenkinsfile.txt"
 </p>
 
 <p align="center">
   <image src="./assets/Declarative_pipe2.png"
-</p>)
+</p>](https://github.com/caevert/mnt-homeworks/blob/master/09-ci-04-jenkins/assets/Jenkinsfile.txt)
 
 
 
