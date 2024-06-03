@@ -65,7 +65,7 @@ Filebeat следует сконфигурировать для отправки
  
 
 <p align="center">
-  <image src="./assets/kibana_logstash-*.png"
+  <image src="./assets/kibana_logstash-_*.png"
 </p> 
 ---
 
